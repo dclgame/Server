@@ -14,6 +14,8 @@
 #include <list>
 #include <vector>
 #include <assert.h>
+#include "NFPlatform.h"
+#include "GUID.h"
 #if NF_PLATFORM == NF_PLATFORM_WIN
 #include <WinSock2.h>
 #include <windows.h>
@@ -26,8 +28,7 @@
 #include <sys/socket.h>
 #include <unistd.h>
 #endif
-#include "Module/NFPlatform.h"
-#include "Module/GUID.h"
+
 
 
 #pragma pack(push, 1)

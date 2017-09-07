@@ -68,45 +68,55 @@
 
 /* Finds the current platform */
 ////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-#if defined( __SYMBIAN32__ )
-#   define NF_PLATFORM NF_PLATFORM_SYMBIAN
-//////////////////////////////////////////////////////////////////////////
-#elif defined( __WIN32__ ) || defined( _WIN32 ) || defined(_WINDOWS) || defined(WIN) || defined(_WIN64) || defined( __WIN64__ )
-#   define NF_PLATFORM NF_PLATFORM_WIN
-//////////////////////////////////////////////////////////////////////////
-#elif defined( __APPLE_CC__) || defined(__APPLE__) || defined(__OSX__)
-// Device                                                     Simulator
-// Both requiring OS version 4.0 or greater
-#   if __ENVIRONMENT_IPHONE_OS_VERSION_MIN_REQUIRED__ >= 40000 || __IPHONE_OS_VERSION_MIN_REQUIRED >= 40000
-#       define NF_PLATFORM NF_PLATFORM_APPLE_IOS
-#   else
-#       define NF_PLATFORM NF_PLATFORM_APPLE
-#   endif
-//////////////////////////////////////////////////////////////////////////
-#elif defined(linux) && defined(__arm__)
-// TODO: This is NOT the correct way to detect the Tegra 2 platform but it works for now.
-// It doesn't appear that GCC defines any platform specific macros.
-#   define NF_PLATFORM NF_PLATFORM_TEGRA2
-#elif defined(__ANDROID__)
-#   define NF_PLATFORM NF_PLATFORM_ANDROID
-//////////////////////////////////////////////////////////////////////////
-#elif defined( __native_client__ )
-#   define NF_PLATFORM NF_PLATFORM_NACL
-#   ifndef NF_STATIC_LIB
-#       error NF must be built as static for NaCl (NF_STATIC=true in cmake)
-#   endif
-#   ifdef NF_BUILD_RENDERSYSTEM_D3D9
-#       error d3d9 is nor supported on NaCl (ONF_BUILD_RENDERSYSTEM_D3D9 false in cmake)
-#   endif
-#   ifdef NF_BUILD_RENDERSYSTEM_GL
-#       error gl is nor supported on NaCl (ONF_BUILD_RENDERSYSTEM_GL=false in cmake)
-#   endif
-#   ifndef NF_BUILD_RENDERSYSTEM_GLES2
-#       error GLES2 render system is needed for NaCl (ONF_BUILD_RENDERSYSTEM_GLES2=false in cmake)
-#   endif
+// #if defined( __SYMBIAN32__ )
+// #   define NF_PLATFORM NF_PLATFORM_SYMBIAN
+// //////////////////////////////////////////////////////////////////////////
+// #elif defined( __WIN32__ ) || defined( _WIN32 ) || defined(_WINDOWS) || defined(WIN) || defined(_WIN64) || defined( __WIN64__ )|| defined(WIN32)
+// #   define NF_PLATFORM NF_PLATFORM_WIN
+// //////////////////////////////////////////////////////////////////////////
+// #elif defined( __APPLE_CC__) || defined(__APPLE__) || defined(__OSX__)
+// // Device                                                     Simulator
+// // Both requiring OS version 4.0 or greater
+// #   if __ENVIRONMENT_IPHONE_OS_VERSION_MIN_REQUIRED__ >= 40000 || __IPHONE_OS_VERSION_MIN_REQUIRED >= 40000
+// #       define NF_PLATFORM NF_PLATFORM_APPLE_IOS
+// #   else
+// #       define NF_PLATFORM NF_PLATFORM_APPLE
+// #   endif
+// //////////////////////////////////////////////////////////////////////////
+// #elif defined(linux) && defined(__arm__)
+// // TODO: This is NOT the correct way to detect the Tegra 2 platform but it works for now.
+// // It doesn't appear that GCC defines any platform specific macros.
+// #   define NF_PLATFORM NF_PLATFORM_TEGRA2
+// #elif defined(__ANDROID__)
+// #   define NF_PLATFORM NF_PLATFORM_ANDROID
+// //////////////////////////////////////////////////////////////////////////
+// #elif defined( __native_client__ )
+// #   define NF_PLATFORM NF_PLATFORM_NACL
+// #   ifndef NF_STATIC_LIB
+// #       error NF must be built as static for NaCl (NF_STATIC=true in cmake)
+// #   endif
+// #   ifdef NF_BUILD_RENDERSYSTEM_D3D9
+// #       error d3d9 is nor supported on NaCl (ONF_BUILD_RENDERSYSTEM_D3D9 false in cmake)
+// #   endif
+// #   ifdef NF_BUILD_RENDERSYSTEM_GL
+// #       error gl is nor supported on NaCl (ONF_BUILD_RENDERSYSTEM_GL=false in cmake)
+// #   endif
+// #   ifndef NF_BUILD_RENDERSYSTEM_GLES2
+// #       error GLES2 render system is needed for NaCl (ONF_BUILD_RENDERSYSTEM_GLES2=false in cmake)
+// #   endif
+// #else
+// #   define NF_PLATFORM NF_PLATFORM_LINUX
+// #endif
+
+
+#ifndef WIN32
+	#define NF_PLATFORM NF_PLATFORM_LINUX
 #else
-#   define NF_PLATFORM NF_PLATFORM_LINUX
+	#define NF_PLATFORM NF_PLATFORM_WIN
 #endif
+
+
+
 ////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 /* Find the arch type */
 #if defined(__x86_64__) || defined(_M_X64) || defined(__powerpc64__) || defined(__alpha__) || defined(__ia64__) || defined(__s390__) || defined(__s390x__)

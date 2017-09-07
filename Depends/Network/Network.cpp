@@ -19,8 +19,6 @@
 #elif NF_PLATFORM == NF_PLATFORM_APPLE
 #include <arpa/inet.h>
 #endif
-
-//#include "event2/bufferevent_struct.h"
 #include "event2/event.h"
 #include <atomic>
 #include "Network.h"

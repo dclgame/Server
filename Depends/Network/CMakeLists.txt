@@ -2,13 +2,19 @@ project(Network)
 
 INCLUDE_DIRECTORIES(
 ${HtBaseC_INCLUDE}
-${Depends_INCLUDE}
-${Depends_INCLUDE}/libevent
-${Depends_INCLUDE}/libevent/compat
-${Depends_INCLUDE}/libevent/include
-${Depends_INCLUDE}/libevent/WIN32-Code/nmake
+${Depends_INCLUDE}/include/libevent
+${Depends_INCLUDE}/include/common
 )
 
+IF(WIN32)
+INCLUDE_DIRECTORIES(
+${Depends_INCLUDE}/include/libevent/WIN32-Code
+${Depends_INCLUDE}/include/libevent/WIN32-Code/nmake
+)
+ENDIF(WIN32)
+
+
+ 
 file(GLOB_RECURSE SOURCE_FILE *.cpp)
 file(GLOB_RECURSE HEADER_FILE *.hpp *.h)
 

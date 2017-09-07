@@ -34,7 +34,6 @@ ENDIF(WIN32)
  
 
 
-set(Common_INCLUDE ${CMAKE_SOURCE_DIR}/Server/Common)
 set(Depends_INCLUDE ${CMAKE_SOURCE_DIR}/Depends)
 set(HtBaseC_INCLUDE ${CMAKE_SOURCE_DIR}/HtBaseC)
 
