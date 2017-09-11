@@ -354,20 +354,20 @@ typedef int64_t SOCKID;
 
 
 template<typename DTYPE>
-bool NF_StrTo(const std::string& strValue, DTYPE& nValue)
-{
-    try
-    {
-        nValue = lexical_cast<DTYPE>(strValue);
-        return true;
-    }
-    catch (...)
-    {
-        return false;
-    }
-
-    return false;
-}
+// bool NF_StrTo(const std::string& strValue, DTYPE& nValue)
+// {
+//     try
+//     {
+//         nValue = lexical_cast<DTYPE>(strValue);
+//         return true;
+//     }
+//     catch (...)
+//     {
+//         return false;
+//     }
+// 
+//     return false;
+// }
 
 inline bool IsZeroFloat(const float fValue, float epsilon = 1e-6)
 {

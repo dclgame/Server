@@ -5,16 +5,28 @@ SET_PROPERTY(GLOBAL PROPERTY USE_FOLDERS ON)
 
 SET(CMAKE_MODULE_PATH ${CMAKE_CURRENT_SOURCE_DIR}/Cmake)
 SET(CMAKE_USE_RELATIVE_PATHS ON)
-IF(UNIX)
-set(CMAKE_CXX_FLAGS_DEBUG "$ENV{CXXFLAGS} -O0 -Wall -g -rdynamic -ggdb") 
-set(CMAKE_CXX_FLAGS_RELEASE "$ENV{CXXFLAGS} -O3 -Wall") 
 
-add_definitions(-std=c++11)
+#IF(UNIX)
+#set(CMAKE_CXX_FLAGS_DEBUG "$ENV{CXXFLAGS} -O0 -std=c++0x  -Wall -g -rdynamic -ggdb") 
+#set(CMAKE_CXX_FLAGS_RELEASE "$ENV{CXXFLAGS} -O3 -Wall") 
+#ELSE(UNIX)
+#set(CMAKE_CXX_FLAGS_DEBUG "${CMAKE_CXX_FLAGS_DEBUG} /MDd /Zi /Od /Ob0 /RTC1") 
+#set(CMAKE_CXX_FLAGS_RELEASE "${CMAKE_CXX_FLAGS_DEBUG} /MD /O2 /Ob2 /DNDEBUG")
+#ENDIF(UNIX)
 
-ELSE(UNIX)
-set(CMAKE_CXX_FLAGS_DEBUG "${CMAKE_CXX_FLAGS_DEBUG} /MDd /Zi /Od /Ob0 /RTC1") 
-set(CMAKE_CXX_FLAGS_RELEASE "${CMAKE_CXX_FLAGS_DEBUG} /MD /O2 /Ob2 /DNDEBUG")
-ENDIF(UNIX)
+
+if(UNIX)
+	if( CMAKE_BUILD_TYPE STREQUAL "Debug" )
+		set(CMAKE_C_FLAGS  "${CMAKE_C_FLAGS} -fPIC")
+		set(CMAKE_CXX_FLAGS "${CMAKE_CXX_FLAGS} -std=c++11 -O0 -Wall -g -ggdb -DDEBUG -fPIC")
+	else()
+		set(CMAKE_BUILD_TYPE "Release")
+		set(CMAKE_C_FLAGS  "${CMAKE_C_FLAGS} -fPIC")
+		set(CMAKE_CXX_FLAGS "${CMAKE_CXX_FLAGS}  -fPIC -std=c++11 -O3 -Wall")
+	endif()
+	set(LDFLAGS "$ENV{LDFLAGS} -stdlib=libc++")	
+else()
+endif()
 
 project(Server)
 
@@ -75,8 +87,12 @@ ${Depends_INCLUDE}/include/libevent
 )
 ENDIF(WIN32)
 
-
-
+INCLUDE_DIRECTORIES(
+${Depends_INCLUDE}/include/libevent
+${Depends_INCLUDE}/include/libevent/WIN32-Code
+${Depends_INCLUDE}/include/libevent/WIN32-Code/nmake
+${Depends_INCLUDE}/include/libevent/WIN32-Code/nmake
+)
  
 
 

@@ -5,7 +5,7 @@
 //    @Module			:		Network
 // -------------------------------------------------------------------------
 
-#include "Net.h"
+#include "Network.h"
 #include <string.h>
 
 #if NF_PLATFORM == NF_PLATFORM_WIN
@@ -19,9 +19,10 @@
 #elif NF_PLATFORM == NF_PLATFORM_APPLE
 #include <arpa/inet.h>
 #endif
+#include "event2/bufferevent_struct.h"
 #include "event2/event.h"
 #include <atomic>
-#include "Network.h"
+
 
 void Network::conn_writecb(struct bufferevent* bev, void* user_data)
 {
