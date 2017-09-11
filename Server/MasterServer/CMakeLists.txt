@@ -1,14 +1,6 @@
 project(MasterServer)
 
-INCLUDE_DIRECTORIES(
-${HtBaseC_INCLUDE}
-${Depends_INCLUDE}/Module
-${Depends_INCLUDE}/include/common
-${Depends_INCLUDE}/Common
-)
-
-
-
+ 
 file(GLOB_RECURSE SOURCE_FILE *.cpp)
 file(GLOB_RECURSE HEADER_FILE *.h)
 
