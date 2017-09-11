@@ -1,4 +1,4 @@
-cmake_minimum_required(VERSION 3.1)
+﻿cmake_minimum_required(VERSION 3.1)
 
 
 SET_PROPERTY(GLOBAL PROPERTY USE_FOLDERS ON)
@@ -9,6 +9,7 @@ IF(UNIX)
 set(CMAKE_CXX_FLAGS_DEBUG "$ENV{CXXFLAGS} -O0 -Wall -g -rdynamic -ggdb") 
 set(CMAKE_CXX_FLAGS_RELEASE "$ENV{CXXFLAGS} -O3 -Wall") 
 
+add_definitions(-std=c++11)
 
 ELSE(UNIX)
 set(CMAKE_CXX_FLAGS_DEBUG "${CMAKE_CXX_FLAGS_DEBUG} /MDd /Zi /Od /Ob0 /RTC1") 
@@ -31,23 +32,28 @@ ELSE(UNIX)
 set(DEPENDS_LIBS ${CMAKE_SOURCE_DIR}/depends/lib/win32)
 ENDIF(UNIX)
 
-IF(WIN32)
-SET(LINK_LIB  libevent.lib)
-ELSE(WIN32)
-#SET(LINK_LIB HtBaseC dl rt)
-SET(LINK_LIB HtBaseC)
-ENDIF(WIN32)
-
-
-
-
-
-
 
 SET(EXECUTABLE_OUTPUT_PATH ${CMAKE_BINARY_DIR}/bin)
 SET(LIBRARY_OUTPUT_PATH ${CMAKE_BINARY_DIR}/bin)
 
- SET(LIB_DIR ${EXECUTABLE_OUTPUT_PATH} ${DEPENDS_LIBS})
+SET(LIB_DIR ${EXECUTABLE_OUTPUT_PATH} ${DEPENDS_LIBS})
+
+SET(INCLUDE_DIR ${CMAKE_SOURCE_DIR} ${HtBaseC_INCLUDE} ${Depends_INCLUDE} ${Common_INCLUDE})
+
+#文件目录 库文件目录
+INCLUDE_DIRECTORIES(${INCLUDE_DIR})
+LINK_DIRECTORIES(${LIB_DIR})
+
+
+
+
+IF(WIN32)
+SET(LINK_LIB  HtBaseC.lib libevent.lib libevent_core.lib)
+ELSE(WIN32)
+#SET(LINK_LIB HtBaseC dl rt)
+SET(LINK_LIB HtBaseC.a libevent.a libevent_core.a dl rt)
+ENDIF(WIN32)
+
 
 
 INCLUDE_DIRECTORIES(
@@ -58,7 +64,6 @@ ${Common_INCLUDE}/Network
 
 
 if(WIN32)
-
 INCLUDE_DIRECTORIES(
 ${Depends_INCLUDE}/include/libevent
 ${Depends_INCLUDE}/include/libevent/WIN32-Code
