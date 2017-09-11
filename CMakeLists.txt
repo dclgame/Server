@@ -22,29 +22,58 @@ set(CMAKE_CONFIGURATION_TYPES "Debug;Release")
 
 set(CMAKE_BUILD_TYPE "Debug")
 
-
+set(Depends_INCLUDE ${CMAKE_SOURCE_DIR}/Depends)
+set(HtBaseC_INCLUDE ${CMAKE_SOURCE_DIR}/HtBaseC)
+set(Common_INCLUDE ${CMAKE_SOURCE_DIR}/Server/Common)
+IF(UNIX)
+set(DEPENDS_LIBS ${CMAKE_SOURCE_DIR}/depends/lib)
+ELSE(UNIX)
+set(DEPENDS_LIBS ${CMAKE_SOURCE_DIR}/depends/lib/win32)
+ENDIF(UNIX)
 
 IF(WIN32)
-SET(LINK_LIB HtBaseC)
+SET(LINK_LIB  libevent.lib)
 ELSE(WIN32)
 #SET(LINK_LIB HtBaseC dl rt)
 SET(LINK_LIB HtBaseC)
 ENDIF(WIN32)
 
- 
 
 
-set(Depends_INCLUDE ${CMAKE_SOURCE_DIR}/Depends)
-set(HtBaseC_INCLUDE ${CMAKE_SOURCE_DIR}/HtBaseC)
+
+
+
 
 SET(EXECUTABLE_OUTPUT_PATH ${CMAKE_BINARY_DIR}/bin)
 SET(LIBRARY_OUTPUT_PATH ${CMAKE_BINARY_DIR}/bin)
 
-#IF(WIN32)
-#include_directories(${SolutionDir}/Dependencies/libevent/WIN32-Code/)
+ SET(LIB_DIR ${EXECUTABLE_OUTPUT_PATH} ${DEPENDS_LIBS})
+
+
+INCLUDE_DIRECTORIES(
+${HtBaseC_INCLUDE}
+${Common_INCLUDE}/Module
+${Common_INCLUDE}/Network
+)
+
+
+if(WIN32)
+
+INCLUDE_DIRECTORIES(
+${Depends_INCLUDE}/include/libevent
+${Depends_INCLUDE}/include/libevent/WIN32-Code
+${Depends_INCLUDE}/include/libevent/WIN32-Code/nmake
+)
+ELSE(WIN32)
+INCLUDE_DIRECTORIES(
+${Depends_INCLUDE}/include/libevent
+)
+ENDIF(WIN32)
+
+
+
+ 
 
 
 add_subdirectory(HtBaseC)
-add_subdirectory(Depends)
-
 add_subdirectory(Server)
