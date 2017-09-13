@@ -109,8 +109,8 @@ void InitDaemon()
 	signal(SIGTERM, SIG_IGN);
 #endif
 }
-
-
+// 
+// 
 void ProcessParameter(int argc, char* argv[])
 {
 	string sAppNameTitle = "Server";
@@ -148,7 +148,6 @@ int main(int argc, char* argv[])
 	SetUnhandledExceptionFilter((LPTOP_LEVEL_EXCEPTION_FILTER)ApplicationCrashHandler);
 #elif NF_PLATFORM == NF_PLATFORM_LINUX
 	InitDaemon();
-}
 #endif
 
 	ProcessParameter(argc, argv);

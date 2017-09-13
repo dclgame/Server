@@ -39,9 +39,9 @@ set(Depends_INCLUDE ${CMAKE_SOURCE_DIR}/Depends)
 set(HtBaseC_INCLUDE ${CMAKE_SOURCE_DIR}/HtBaseC)
 set(Common_INCLUDE ${CMAKE_SOURCE_DIR}/Server/Common)
 IF(UNIX)
-set(DEPENDS_LIBS ${CMAKE_SOURCE_DIR}/depends/lib)
+set(DEPENDS_LIBS ${CMAKE_SOURCE_DIR}/lib)
 ELSE(UNIX)
-set(DEPENDS_LIBS ${CMAKE_SOURCE_DIR}/depends/lib/win32)
+set(DEPENDS_LIBS ${CMAKE_SOURCE_DIR}/lib)
 ENDIF(UNIX)
 
 
@@ -77,24 +77,21 @@ ${Common_INCLUDE}/Network
 
 if(WIN32)
 INCLUDE_DIRECTORIES(
-${Depends_INCLUDE}/include/libevent
-${Depends_INCLUDE}/include/libevent/WIN32-Code
-${Depends_INCLUDE}/include/libevent/WIN32-Code/nmake
+${Depends_INCLUDE}/libevent
+${Depends_INCLUDE}/libevent/include
+${Depends_INCLUDE}/libevent/WIN32-Code
+${Depends_INCLUDE}/libevent/WIN32-Code/nmake
 )
 ELSE(WIN32)
 INCLUDE_DIRECTORIES(
-${Depends_INCLUDE}/include/libevent
+${Depends_INCLUDE}/libevent
+${Depends_INCLUDE}/libevent/include
 )
 ENDIF(WIN32)
 
-INCLUDE_DIRECTORIES(
-${Depends_INCLUDE}/include/libevent
-${Depends_INCLUDE}/include/libevent/WIN32-Code
-${Depends_INCLUDE}/include/libevent/WIN32-Code/nmake
-${Depends_INCLUDE}/include/libevent/WIN32-Code/nmake
-)
- 
+
 
 
 add_subdirectory(HtBaseC)
 add_subdirectory(Server)
+

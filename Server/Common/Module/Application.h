@@ -20,7 +20,7 @@ public:
 	template <typename T>
 	T* FindModule()
 	{
-		NFIModule* pLogicModule = FindModule(typeid(T).name());
+		T* pLogicModule = FindModule(typeid(T).name());
 		if (pLogicModule)
 		{
 // 			if (!TIsDerived<T, NFIModule>::Result)
@@ -37,7 +37,7 @@ public:
 
 			return pT;
 		}
-		assert(NULL);
+		assert(pLogicModule != NULL);
 		return NULL;
 	}
 
