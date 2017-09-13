@@ -39,6 +39,7 @@ set(Depends_INCLUDE ${CMAKE_SOURCE_DIR}/Depends)
 set(HtBaseC_INCLUDE ${CMAKE_SOURCE_DIR}/HtBaseC)
 set(Common_INCLUDE ${CMAKE_SOURCE_DIR}/Server/Common)
 set(Protobuf_INCLUDE ${CMAKE_SOURCE_DIR}/Depends/protobuf/src)
+set(ProtoMsg_INCLUDE ${CMAKE_SOURCE_DIR}/Server/Protocol)
 IF(UNIX)
 set(DEPENDS_LIBS ${CMAKE_SOURCE_DIR}/lib)
 ELSE(UNIX)
@@ -75,6 +76,7 @@ ${Protobuf_INCLUDE}
 ${Common_INCLUDE}/Module
 ${Common_INCLUDE}/Network
 ${Protobuf_INCLUDE}
+${ProtoMsg_INCLUDE}
 )
 
 
