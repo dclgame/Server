@@ -89,7 +89,7 @@ namespace Module
 
 		std::string ToString() const
 		{
-			return HtString::StrConvertFromInt(nHead64) + "-" +HtString::StrConvertFromInt(nData64);
+			return HtString::StrConvertFromLong(nHead64) + "-" + HtString::StrConvertFromLong(nData64);
 			//return lexical_cast<std::string>(nHead64)+"-" + lexical_cast<std::string>(nData64);
 		}
 

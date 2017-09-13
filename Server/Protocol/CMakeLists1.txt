@@ -1,0 +1,41 @@
+set(ProjectName "MessageDefine")
+file(GLOB MessageDefine_ROOT_Cpp *.cpp)
+file(GLOB MessageDefine_ROOT_CC *.cc)
+file(GLOB MessageDefine_ROOT_Hpp *.h)
+
+add_library(MessageDefine SHARED
+	${MessageDefine_ROOT_Cpp}
+	${MessageDefine_ROOT_CC}
+	${MessageDefine_ROOT_Hpp})
+
+if (APPLE)
+	if (CMAKE_BUILD_TYPE MATCHES "Release")
+		target_link_libraries(MessageDefine libprotobuf.a)
+	else()
+		target_link_libraries(MessageDefine libprotobuf.a)
+	endif()
+	add_definitions(
+		-D_THREAD_SAFE
+	)
+elseif(UNIX)
+	if (CMAKE_BUILD_TYPE MATCHES "Release")
+		target_link_libraries(MessageDefine )
+	else()
+		target_link_libraries(MessageDefine )
+	endif()
+	
+else()
+	add_dependencies(MessageDefine libprotobuf)
+	target_link_libraries(MessageDefine  libprotobuf )
+	add_definitions(
+		-D_USRDLL
+		-D_LIB
+		-DLIBPROTOC_EXPORTS
+		-DPROTOBUF_USE_DLLS
+		-D_SCL_SECURE_NO_WARNINGS
+		)
+
+endif()
+set_target_properties( MessageDefine PROPERTIES OUTPUT_NAME_DEBUG "MessageDefine_d")
+set_target_properties( MessageDefine PROPERTIES PREFIX "")
+ 

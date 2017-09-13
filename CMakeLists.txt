@@ -38,6 +38,7 @@ set(CMAKE_BUILD_TYPE "Debug")
 set(Depends_INCLUDE ${CMAKE_SOURCE_DIR}/Depends)
 set(HtBaseC_INCLUDE ${CMAKE_SOURCE_DIR}/HtBaseC)
 set(Common_INCLUDE ${CMAKE_SOURCE_DIR}/Server/Common)
+set(Protobuf_INCLUDE ${CMAKE_SOURCE_DIR}/Depends/protobuf/src)
 IF(UNIX)
 set(DEPENDS_LIBS ${CMAKE_SOURCE_DIR}/lib)
 ELSE(UNIX)
@@ -70,8 +71,10 @@ ENDIF(WIN32)
 
 INCLUDE_DIRECTORIES(
 ${HtBaseC_INCLUDE}
+${Protobuf_INCLUDE}
 ${Common_INCLUDE}/Module
 ${Common_INCLUDE}/Network
+${Protobuf_INCLUDE}
 )
 
 
