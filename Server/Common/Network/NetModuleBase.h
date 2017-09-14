@@ -6,8 +6,6 @@
 #include "GUID.h"
 #include "Module.h"
 #include "Net.h"
-#include "MsgDefine.pb.h"
-#include "MsgDefine.pb.cc"
 #ifdef _MSC_VER
 #pragma warning(disable: 4244 4267)
 #endif
@@ -77,26 +75,26 @@ public:
 		return vector;
 	}
 
-	static NFMsg::Ident NFToPB(GUID xID)
+	static Msg::Ident NFToPB(GUID xID)
 	{
-		NFMsg::Ident  xIdent;
+		Msg::Ident  xIdent;
 		xIdent.set_svrid(xID.nHead64);
 		xIdent.set_index(xID.nData64);
 
 		return xIdent;
 	}
 
-	static NFMsg::Vector2 NFToPB(Vector2 value)
+	static Msg::Vector2 NFToPB(Vector2 value)
 	{
-		NFMsg::Vector2  vector;
+		Msg::Vector2  vector;
 		vector.set_x(value.X());
 		vector.set_y(value.Y());
 		return vector;
 	}
 
-	static NFMsg::Vector3 NFToPB(Vector3 value)
+	static Msg::Vector3 NFToPB(Vector3 value)
 	{
-		NFMsg::Vector3  vector;
+		Msg::Vector3  vector;
 		vector.set_x(value.X());
 		vector.set_y(value.Y());
 		vector.set_z(value.Z());
@@ -122,7 +120,7 @@ public:
 	}
 
 	template<typename BaseType>
-	bool AddEventCallBack(BaseType* pBase, void (BaseType::*handler)(const SOCKID, const NF_NET_EVENT, NFINet*))
+	bool AddEventCallBack(BaseType* pBase, void (BaseType::*handler)(const SOCKID, const NF_NET_EVENT, Net*))
 	{
 		NET_EVENT_FUNCTOR functor = std::bind(handler, pBase, std::placeholders::_1, std::placeholders::_2, std::placeholders::_3);
 		NET_EVENT_FUNCTOR_PTR functorPtr(new NET_EVENT_FUNCTOR(functor));
