@@ -1,6 +1,6 @@
 package Msg; 
 
-import "Define.proto";
+import "MsgDefine.proto";
 import "MsgBase.proto";
 
 

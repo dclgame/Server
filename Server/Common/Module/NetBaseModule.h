@@ -98,17 +98,17 @@ enum SERVER_TYPES
 // 		return xIdent;
 // 	}
 // 
-// 	static NFVector2 PBToNF(NFMsg::Vector2 value)
+// 	static Vector2 PBToNF(NFMsg::Vector2 value)
 // 	{
-// 		NFVector2  vector;
+// 		Vector2  vector;
 // 		vector.SetX(value.x());
 // 		vector.SetY(value.y());
 // 		return vector;
 // 	}
 // 
-// 	static NFVector3 PBToNF(NFMsg::Vector3 value)
+// 	static Vector3 PBToNF(NFMsg::Vector3 value)
 // 	{
-// 		NFVector3  vector;
+// 		Vector3  vector;
 // 		vector.SetX(value.x());
 // 		vector.SetY(value.y());
 // 		vector.SetZ(value.z());
@@ -124,7 +124,7 @@ enum SERVER_TYPES
 // 		return xIdent;
 // 	}
 // 
-// 	static NFMsg::Vector2 NFToPB(NFVector2 value)
+// 	static NFMsg::Vector2 NFToPB(Vector2 value)
 // 	{
 // 		NFMsg::Vector2  vector;
 // 		vector.set_x(value.X());
@@ -132,7 +132,7 @@ enum SERVER_TYPES
 // 		return vector;
 // 	}
 // 
-// 	static NFMsg::Vector3 NFToPB(NFVector3 value)
+// 	static NFMsg::Vector3 NFToPB(Vector3 value)
 // 	{
 // 		NFMsg::Vector3  vector;
 // 		vector.set_x(value.X());

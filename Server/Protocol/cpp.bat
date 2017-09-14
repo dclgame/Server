@@ -1,5 +1,5 @@
 
-protoc.exe -I=./ --cpp_out=dllexport_decl=LIBPROTOC_EXPORT:./ ./Define.proto 
+protoc.exe -I=./ --cpp_out=dllexport_decl=LIBPROTOC_EXPORT:./ ./MsgDefine.proto 
 protoc.exe -I=./ --cpp_out=dllexport_decl=LIBPROTOC_EXPORT:./ ./MsgBase.proto 
 protoc.exe -I=./ --cpp_out=dllexport_decl=LIBPROTOC_EXPORT:./ ./MsgPreGame.proto 
 protoc.exe -I=./ --cpp_out=dllexport_decl=LIBPROTOC_EXPORT:./ ./MsgShare.proto  
