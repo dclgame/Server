@@ -36,7 +36,7 @@ void LIBPROTOC_EXPORT protobuf_AddDesc_MsgPreGame_2eproto();
 void protobuf_AssignDesc_MsgPreGame_2eproto();
 void protobuf_ShutdownFile_MsgPreGame_2eproto();
 
-class ServerIoReport;
+class ServerInfoReport;
 class ServerIoReportList;
 class AckEventResult;
 class ReqAccountLogin;
@@ -101,14 +101,14 @@ inline bool ReqServerListType_Parse(
 }
 // ===================================================================
 
-class LIBPROTOC_EXPORT ServerIoReport : public ::google::protobuf::Message {
+class LIBPROTOC_EXPORT ServerInfoReport : public ::google::protobuf::Message {
  public:
-  ServerIoReport();
-  virtual ~ServerIoReport();
+  ServerInfoReport();
+  virtual ~ServerInfoReport();
 
-  ServerIoReport(const ServerIoReport& from);
+  ServerInfoReport(const ServerInfoReport& from);
 
-  inline ServerIoReport& operator=(const ServerIoReport& from) {
+  inline ServerInfoReport& operator=(const ServerInfoReport& from) {
     CopyFrom(from);
     return *this;
   }
@@ -122,17 +122,17 @@ class LIBPROTOC_EXPORT ServerIoReport : public ::google::protobuf::Message {
   }
 
   static const ::google::protobuf::Descriptor* descriptor();
-  static const ServerIoReport& default_instance();
+  static const ServerInfoReport& default_instance();
 
-  void Swap(ServerIoReport* other);
+  void Swap(ServerInfoReport* other);
 
   // implements Message ----------------------------------------------
 
-  ServerIoReport* New() const;
+  ServerInfoReport* New() const;
   void CopyFrom(const ::google::protobuf::Message& from);
   void MergeFrom(const ::google::protobuf::Message& from);
-  void CopyFrom(const ServerIoReport& from);
-  void MergeFrom(const ServerIoReport& from);
+  void CopyFrom(const ServerInfoReport& from);
+  void MergeFrom(const ServerInfoReport& from);
   void Clear();
   bool IsInitialized() const;
 
@@ -221,7 +221,7 @@ class LIBPROTOC_EXPORT ServerIoReport : public ::google::protobuf::Message {
   inline ::google::protobuf::int32 server_type() const;
   inline void set_server_type(::google::protobuf::int32 value);
 
-  // @@protoc_insertion_point(class_scope:Msg.ServerIoReport)
+  // @@protoc_insertion_point(class_scope:Msg.ServerInfoReport)
  private:
   inline void set_has_server_id();
   inline void clear_has_server_id();
@@ -259,7 +259,7 @@ class LIBPROTOC_EXPORT ServerIoReport : public ::google::protobuf::Message {
   friend void protobuf_ShutdownFile_MsgPreGame_2eproto();
 
   void InitAsDefaultInstance();
-  static ServerIoReport* default_instance_;
+  static ServerInfoReport* default_instance_;
 };
 // -------------------------------------------------------------------
 
@@ -317,16 +317,16 @@ class LIBPROTOC_EXPORT ServerIoReportList : public ::google::protobuf::Message {
 
   // accessors -------------------------------------------------------
 
-  // repeated .Msg.ServerIoReport server_list = 1;
+  // repeated .Msg.ServerInfoReport server_list = 1;
   inline int server_list_size() const;
   inline void clear_server_list();
   static const int kServerListFieldNumber = 1;
-  inline const ::Msg::ServerIoReport& server_list(int index) const;
-  inline ::Msg::ServerIoReport* mutable_server_list(int index);
-  inline ::Msg::ServerIoReport* add_server_list();
-  inline const ::google::protobuf::RepeatedPtrField< ::Msg::ServerIoReport >&
+  inline const ::Msg::ServerInfoReport& server_list(int index) const;
+  inline ::Msg::ServerInfoReport* mutable_server_list(int index);
+  inline ::Msg::ServerInfoReport* add_server_list();
+  inline const ::google::protobuf::RepeatedPtrField< ::Msg::ServerInfoReport >&
       server_list() const;
-  inline ::google::protobuf::RepeatedPtrField< ::Msg::ServerIoReport >*
+  inline ::google::protobuf::RepeatedPtrField< ::Msg::ServerInfoReport >*
       mutable_server_list();
 
   // @@protoc_insertion_point(class_scope:Msg.ServerIoReportList)
@@ -334,7 +334,7 @@ class LIBPROTOC_EXPORT ServerIoReportList : public ::google::protobuf::Message {
 
   ::google::protobuf::UnknownFieldSet _unknown_fields_;
 
-  ::google::protobuf::RepeatedPtrField< ::Msg::ServerIoReport > server_list_;
+  ::google::protobuf::RepeatedPtrField< ::Msg::ServerInfoReport > server_list_;
 
   mutable int _cached_size_;
   ::google::protobuf::uint32 _has_bits_[(1 + 31) / 32];
@@ -2524,78 +2524,78 @@ class LIBPROTOC_EXPORT RoleOfflineNotify : public ::google::protobuf::Message {
 
 // ===================================================================
 
-// ServerIoReport
+// ServerInfoReport
 
 // required int32 server_id = 1;
-inline bool ServerIoReport::has_server_id() const {
+inline bool ServerInfoReport::has_server_id() const {
   return (_has_bits_[0] & 0x00000001u) != 0;
 }
-inline void ServerIoReport::set_has_server_id() {
+inline void ServerInfoReport::set_has_server_id() {
   _has_bits_[0] |= 0x00000001u;
 }
-inline void ServerIoReport::clear_has_server_id() {
+inline void ServerInfoReport::clear_has_server_id() {
   _has_bits_[0] &= ~0x00000001u;
 }
-inline void ServerIoReport::clear_server_id() {
+inline void ServerInfoReport::clear_server_id() {
   server_id_ = 0;
   clear_has_server_id();
 }
-inline ::google::protobuf::int32 ServerIoReport::server_id() const {
+inline ::google::protobuf::int32 ServerInfoReport::server_id() const {
   return server_id_;
 }
-inline void ServerIoReport::set_server_id(::google::protobuf::int32 value) {
+inline void ServerInfoReport::set_server_id(::google::protobuf::int32 value) {
   set_has_server_id();
   server_id_ = value;
 }
 
 // required bytes server_name = 2;
-inline bool ServerIoReport::has_server_name() const {
+inline bool ServerInfoReport::has_server_name() const {
   return (_has_bits_[0] & 0x00000002u) != 0;
 }
-inline void ServerIoReport::set_has_server_name() {
+inline void ServerInfoReport::set_has_server_name() {
   _has_bits_[0] |= 0x00000002u;
 }
-inline void ServerIoReport::clear_has_server_name() {
+inline void ServerInfoReport::clear_has_server_name() {
   _has_bits_[0] &= ~0x00000002u;
 }
-inline void ServerIoReport::clear_server_name() {
+inline void ServerInfoReport::clear_server_name() {
   if (server_name_ != &::google::protobuf::internal::kEmptyString) {
     server_name_->clear();
   }
   clear_has_server_name();
 }
-inline const ::std::string& ServerIoReport::server_name() const {
+inline const ::std::string& ServerInfoReport::server_name() const {
   return *server_name_;
 }
-inline void ServerIoReport::set_server_name(const ::std::string& value) {
+inline void ServerInfoReport::set_server_name(const ::std::string& value) {
   set_has_server_name();
   if (server_name_ == &::google::protobuf::internal::kEmptyString) {
     server_name_ = new ::std::string;
   }
   server_name_->assign(value);
 }
-inline void ServerIoReport::set_server_name(const char* value) {
+inline void ServerInfoReport::set_server_name(const char* value) {
   set_has_server_name();
   if (server_name_ == &::google::protobuf::internal::kEmptyString) {
     server_name_ = new ::std::string;
   }
   server_name_->assign(value);
 }
-inline void ServerIoReport::set_server_name(const void* value, size_t size) {
+inline void ServerInfoReport::set_server_name(const void* value, size_t size) {
   set_has_server_name();
   if (server_name_ == &::google::protobuf::internal::kEmptyString) {
     server_name_ = new ::std::string;
   }
   server_name_->assign(reinterpret_cast<const char*>(value), size);
 }
-inline ::std::string* ServerIoReport::mutable_server_name() {
+inline ::std::string* ServerInfoReport::mutable_server_name() {
   set_has_server_name();
   if (server_name_ == &::google::protobuf::internal::kEmptyString) {
     server_name_ = new ::std::string;
   }
   return server_name_;
 }
-inline ::std::string* ServerIoReport::release_server_name() {
+inline ::std::string* ServerInfoReport::release_server_name() {
   clear_has_server_name();
   if (server_name_ == &::google::protobuf::internal::kEmptyString) {
     return NULL;
@@ -2605,7 +2605,7 @@ inline ::std::string* ServerIoReport::release_server_name() {
     return temp;
   }
 }
-inline void ServerIoReport::set_allocated_server_name(::std::string* server_name) {
+inline void ServerInfoReport::set_allocated_server_name(::std::string* server_name) {
   if (server_name_ != &::google::protobuf::internal::kEmptyString) {
     delete server_name_;
   }
@@ -2619,53 +2619,53 @@ inline void ServerIoReport::set_allocated_server_name(::std::string* server_name
 }
 
 // required bytes server_ip = 3;
-inline bool ServerIoReport::has_server_ip() const {
+inline bool ServerInfoReport::has_server_ip() const {
   return (_has_bits_[0] & 0x00000004u) != 0;
 }
-inline void ServerIoReport::set_has_server_ip() {
+inline void ServerInfoReport::set_has_server_ip() {
   _has_bits_[0] |= 0x00000004u;
 }
-inline void ServerIoReport::clear_has_server_ip() {
+inline void ServerInfoReport::clear_has_server_ip() {
   _has_bits_[0] &= ~0x00000004u;
 }
-inline void ServerIoReport::clear_server_ip() {
+inline void ServerInfoReport::clear_server_ip() {
   if (server_ip_ != &::google::protobuf::internal::kEmptyString) {
     server_ip_->clear();
   }
   clear_has_server_ip();
 }
-inline const ::std::string& ServerIoReport::server_ip() const {
+inline const ::std::string& ServerInfoReport::server_ip() const {
   return *server_ip_;
 }
-inline void ServerIoReport::set_server_ip(const ::std::string& value) {
+inline void ServerInfoReport::set_server_ip(const ::std::string& value) {
   set_has_server_ip();
   if (server_ip_ == &::google::protobuf::internal::kEmptyString) {
     server_ip_ = new ::std::string;
   }
   server_ip_->assign(value);
 }
-inline void ServerIoReport::set_server_ip(const char* value) {
+inline void ServerInfoReport::set_server_ip(const char* value) {
   set_has_server_ip();
   if (server_ip_ == &::google::protobuf::internal::kEmptyString) {
     server_ip_ = new ::std::string;
   }
   server_ip_->assign(value);
 }
-inline void ServerIoReport::set_server_ip(const void* value, size_t size) {
+inline void ServerInfoReport::set_server_ip(const void* value, size_t size) {
   set_has_server_ip();
   if (server_ip_ == &::google::protobuf::internal::kEmptyString) {
     server_ip_ = new ::std::string;
   }
   server_ip_->assign(reinterpret_cast<const char*>(value), size);
 }
-inline ::std::string* ServerIoReport::mutable_server_ip() {
+inline ::std::string* ServerInfoReport::mutable_server_ip() {
   set_has_server_ip();
   if (server_ip_ == &::google::protobuf::internal::kEmptyString) {
     server_ip_ = new ::std::string;
   }
   return server_ip_;
 }
-inline ::std::string* ServerIoReport::release_server_ip() {
+inline ::std::string* ServerInfoReport::release_server_ip() {
   clear_has_server_ip();
   if (server_ip_ == &::google::protobuf::internal::kEmptyString) {
     return NULL;
@@ -2675,7 +2675,7 @@ inline ::std::string* ServerIoReport::release_server_ip() {
     return temp;
   }
 }
-inline void ServerIoReport::set_allocated_server_ip(::std::string* server_ip) {
+inline void ServerInfoReport::set_allocated_server_ip(::std::string* server_ip) {
   if (server_ip_ != &::google::protobuf::internal::kEmptyString) {
     delete server_ip_;
   }
@@ -2689,112 +2689,112 @@ inline void ServerIoReport::set_allocated_server_ip(::std::string* server_ip) {
 }
 
 // required int32 server_port = 4;
-inline bool ServerIoReport::has_server_port() const {
+inline bool ServerInfoReport::has_server_port() const {
   return (_has_bits_[0] & 0x00000008u) != 0;
 }
-inline void ServerIoReport::set_has_server_port() {
+inline void ServerInfoReport::set_has_server_port() {
   _has_bits_[0] |= 0x00000008u;
 }
-inline void ServerIoReport::clear_has_server_port() {
+inline void ServerInfoReport::clear_has_server_port() {
   _has_bits_[0] &= ~0x00000008u;
 }
-inline void ServerIoReport::clear_server_port() {
+inline void ServerInfoReport::clear_server_port() {
   server_port_ = 0;
   clear_has_server_port();
 }
-inline ::google::protobuf::int32 ServerIoReport::server_port() const {
+inline ::google::protobuf::int32 ServerInfoReport::server_port() const {
   return server_port_;
 }
-inline void ServerIoReport::set_server_port(::google::protobuf::int32 value) {
+inline void ServerInfoReport::set_server_port(::google::protobuf::int32 value) {
   set_has_server_port();
   server_port_ = value;
 }
 
 // required int32 server_max_online = 5;
-inline bool ServerIoReport::has_server_max_online() const {
+inline bool ServerInfoReport::has_server_max_online() const {
   return (_has_bits_[0] & 0x00000010u) != 0;
 }
-inline void ServerIoReport::set_has_server_max_online() {
+inline void ServerInfoReport::set_has_server_max_online() {
   _has_bits_[0] |= 0x00000010u;
 }
-inline void ServerIoReport::clear_has_server_max_online() {
+inline void ServerInfoReport::clear_has_server_max_online() {
   _has_bits_[0] &= ~0x00000010u;
 }
-inline void ServerIoReport::clear_server_max_online() {
+inline void ServerInfoReport::clear_server_max_online() {
   server_max_online_ = 0;
   clear_has_server_max_online();
 }
-inline ::google::protobuf::int32 ServerIoReport::server_max_online() const {
+inline ::google::protobuf::int32 ServerInfoReport::server_max_online() const {
   return server_max_online_;
 }
-inline void ServerIoReport::set_server_max_online(::google::protobuf::int32 value) {
+inline void ServerInfoReport::set_server_max_online(::google::protobuf::int32 value) {
   set_has_server_max_online();
   server_max_online_ = value;
 }
 
 // required int32 server_cur_count = 6;
-inline bool ServerIoReport::has_server_cur_count() const {
+inline bool ServerInfoReport::has_server_cur_count() const {
   return (_has_bits_[0] & 0x00000020u) != 0;
 }
-inline void ServerIoReport::set_has_server_cur_count() {
+inline void ServerInfoReport::set_has_server_cur_count() {
   _has_bits_[0] |= 0x00000020u;
 }
-inline void ServerIoReport::clear_has_server_cur_count() {
+inline void ServerInfoReport::clear_has_server_cur_count() {
   _has_bits_[0] &= ~0x00000020u;
 }
-inline void ServerIoReport::clear_server_cur_count() {
+inline void ServerInfoReport::clear_server_cur_count() {
   server_cur_count_ = 0;
   clear_has_server_cur_count();
 }
-inline ::google::protobuf::int32 ServerIoReport::server_cur_count() const {
+inline ::google::protobuf::int32 ServerInfoReport::server_cur_count() const {
   return server_cur_count_;
 }
-inline void ServerIoReport::set_server_cur_count(::google::protobuf::int32 value) {
+inline void ServerInfoReport::set_server_cur_count(::google::protobuf::int32 value) {
   set_has_server_cur_count();
   server_cur_count_ = value;
 }
 
 // required .Msg.EServerState server_state = 7;
-inline bool ServerIoReport::has_server_state() const {
+inline bool ServerInfoReport::has_server_state() const {
   return (_has_bits_[0] & 0x00000040u) != 0;
 }
-inline void ServerIoReport::set_has_server_state() {
+inline void ServerInfoReport::set_has_server_state() {
   _has_bits_[0] |= 0x00000040u;
 }
-inline void ServerIoReport::clear_has_server_state() {
+inline void ServerInfoReport::clear_has_server_state() {
   _has_bits_[0] &= ~0x00000040u;
 }
-inline void ServerIoReport::clear_server_state() {
+inline void ServerInfoReport::clear_server_state() {
   server_state_ = 0;
   clear_has_server_state();
 }
-inline ::Msg::EServerState ServerIoReport::server_state() const {
+inline ::Msg::EServerState ServerInfoReport::server_state() const {
   return static_cast< ::Msg::EServerState >(server_state_);
 }
-inline void ServerIoReport::set_server_state(::Msg::EServerState value) {
+inline void ServerInfoReport::set_server_state(::Msg::EServerState value) {
   assert(::Msg::EServerState_IsValid(value));
   set_has_server_state();
   server_state_ = value;
 }
 
 // required int32 server_type = 8;
-inline bool ServerIoReport::has_server_type() const {
+inline bool ServerInfoReport::has_server_type() const {
   return (_has_bits_[0] & 0x00000080u) != 0;
 }
-inline void ServerIoReport::set_has_server_type() {
+inline void ServerInfoReport::set_has_server_type() {
   _has_bits_[0] |= 0x00000080u;
 }
-inline void ServerIoReport::clear_has_server_type() {
+inline void ServerInfoReport::clear_has_server_type() {
   _has_bits_[0] &= ~0x00000080u;
 }
-inline void ServerIoReport::clear_server_type() {
+inline void ServerInfoReport::clear_server_type() {
   server_type_ = 0;
   clear_has_server_type();
 }
-inline ::google::protobuf::int32 ServerIoReport::server_type() const {
+inline ::google::protobuf::int32 ServerInfoReport::server_type() const {
   return server_type_;
 }
-inline void ServerIoReport::set_server_type(::google::protobuf::int32 value) {
+inline void ServerInfoReport::set_server_type(::google::protobuf::int32 value) {
   set_has_server_type();
   server_type_ = value;
 }
@@ -2803,27 +2803,27 @@ inline void ServerIoReport::set_server_type(::google::protobuf::int32 value) {
 
 // ServerIoReportList
 
-// repeated .Msg.ServerIoReport server_list = 1;
+// repeated .Msg.ServerInfoReport server_list = 1;
 inline int ServerIoReportList::server_list_size() const {
   return server_list_.size();
 }
 inline void ServerIoReportList::clear_server_list() {
   server_list_.Clear();
 }
-inline const ::Msg::ServerIoReport& ServerIoReportList::server_list(int index) const {
+inline const ::Msg::ServerInfoReport& ServerIoReportList::server_list(int index) const {
   return server_list_.Get(index);
 }
-inline ::Msg::ServerIoReport* ServerIoReportList::mutable_server_list(int index) {
+inline ::Msg::ServerInfoReport* ServerIoReportList::mutable_server_list(int index) {
   return server_list_.Mutable(index);
 }
-inline ::Msg::ServerIoReport* ServerIoReportList::add_server_list() {
+inline ::Msg::ServerInfoReport* ServerIoReportList::add_server_list() {
   return server_list_.Add();
 }
-inline const ::google::protobuf::RepeatedPtrField< ::Msg::ServerIoReport >&
+inline const ::google::protobuf::RepeatedPtrField< ::Msg::ServerInfoReport >&
 ServerIoReportList::server_list() const {
   return server_list_;
 }
-inline ::google::protobuf::RepeatedPtrField< ::Msg::ServerIoReport >*
+inline ::google::protobuf::RepeatedPtrField< ::Msg::ServerInfoReport >*
 ServerIoReportList::mutable_server_list() {
   return &server_list_;
 }

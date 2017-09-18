@@ -354,31 +354,31 @@ public:
 	{
 		mnGameID = nData;
 	}
-	const Module::GUID& GetUserID()
+	const module::GUID& GetUserID()
 	{
 		return mnUserID;
 	}
 
-	void SetUserID(const Module::GUID& nUserID)
+	void SetUserID(const module::GUID& nUserID)
 	{
 		mnUserID = nUserID;
 	}
 
-	const Module::GUID& GetClientID()
+	const module::GUID& GetClientID()
 	{
 		return mnClientID;
 	}
 
-	void SetClientID(const Module::GUID& xClientID)
+	void SetClientID(const module::GUID& xClientID)
 	{
 		mnClientID = xClientID;
 	}
-	const Module::GUID& GetHashIdentID()
+	const module::GUID& GetHashIdentID()
 	{
 		return mnHashIdentID;
 	}
 
-	void SetHashIdentID(const Module::GUID& xHashIdentID)
+	void SetHashIdentID(const module::GUID& xHashIdentID)
 	{
 		mnHashIdentID = xHashIdentID;
 	}
@@ -397,9 +397,9 @@ private:
 
 	int32_t mnLogicState;
 	int32_t mnGameID;
-	Module::GUID mnUserID;//player id
-	Module::GUID mnClientID;//temporary client id
-	Module::GUID mnHashIdentID;//hash ident, special for distributed
+	module::GUID mnUserID;//player id
+	module::GUID mnClientID;//temporary client id
+	module::GUID mnHashIdentID;//hash ident, special for distributed
 	Net* m_pNet;
 	//
 	SOCKID nFD;

@@ -1,5 +1,5 @@
-#ifndef H_NETBASE_MODULE_H
-#define H_NETBASE_MODULE_H
+#ifndef H_NETBASE_Module_H
+#define H_NETBASE_Module_H
 
 #include <iostream>
 #include <iosfwd>
@@ -7,7 +7,7 @@
 #include "Module.h"
 // #include "NFComm/NFNetPlugin/NFINet.h"
 // #include "NFComm/NFCore/NFQueue.hpp"
-// #include "NFComm/NFMessageDefine/NFMsgDefine.h"
+// #include "NFComm/NFMessageDefine/MsgDefine.h"
 #ifdef _MSC_VER
 #pragma warning(disable: 4244 4267)
 #endif
@@ -73,7 +73,7 @@ enum SERVER_TYPES
 // {
 // 	ServerData()
 // 	{
-// 		pData = SHARE_PTR<NFMsg::ServerInfoReport>(NEW NFMsg::ServerInfoReport());
+// 		pData = SHARE_PTR<Msg::ServerInfoReport>(NEW Msg::ServerInfoReport());
 // 		nFD = 0;
 // 	}
 // 	~ServerData()
@@ -83,13 +83,13 @@ enum SERVER_TYPES
 // 	}
 // 
 // 	SOCKID nFD;
-// 	SHARE_PTR<NFMsg::ServerInfoReport> pData;
+// 	SHARE_PTR<Msg::ServerInfoReport> pData;
 // };
 // 
 // class NetBaseModule: public Module
 // {
 // public:
-// 	static GUID PBToNF(NFMsg::Ident xID)
+// 	static GUID PBToNF(Msg::Ident xID)
 // 	{
 // 		GUID  xIdent;
 // 		xIdent.nHead64 = xID.svrid();
@@ -98,7 +98,7 @@ enum SERVER_TYPES
 // 		return xIdent;
 // 	}
 // 
-// 	static Vector2 PBToNF(NFMsg::Vector2 value)
+// 	static Vector2 PBToNF(Msg::Vector2 value)
 // 	{
 // 		Vector2  vector;
 // 		vector.SetX(value.x());
@@ -106,7 +106,7 @@ enum SERVER_TYPES
 // 		return vector;
 // 	}
 // 
-// 	static Vector3 PBToNF(NFMsg::Vector3 value)
+// 	static Vector3 PBToNF(Msg::Vector3 value)
 // 	{
 // 		Vector3  vector;
 // 		vector.SetX(value.x());
@@ -115,26 +115,26 @@ enum SERVER_TYPES
 // 		return vector;
 // 	}
 // 
-// 	static NFMsg::Ident NFToPB(GUID xID)
+// 	static Msg::Ident NFToPB(GUID xID)
 // 	{
-// 		NFMsg::Ident  xIdent;
+// 		Msg::Ident  xIdent;
 // 		xIdent.set_svrid(xID.nHead64);
 // 		xIdent.set_index(xID.nData64);
 // 
 // 		return xIdent;
 // 	}
 // 
-// 	static NFMsg::Vector2 NFToPB(Vector2 value)
+// 	static Msg::Vector2 NFToPB(Vector2 value)
 // 	{
-// 		NFMsg::Vector2  vector;
+// 		Msg::Vector2  vector;
 // 		vector.set_x(value.X());
 // 		vector.set_y(value.Y());
 // 		return vector;
 // 	}
 // 
-// 	static NFMsg::Vector3 NFToPB(Vector3 value)
+// 	static Msg::Vector3 NFToPB(Vector3 value)
 // 	{
-// 		NFMsg::Vector3  vector;
+// 		Msg::Vector3  vector;
 // 		vector.set_x(value.X());
 // 		vector.set_y(value.Y());
 // 		vector.set_z(value.Z());
@@ -170,7 +170,7 @@ enum SERVER_TYPES
 // 
 // 	static bool Receive(const int nMsgID, const char * msg, const uint32_t nLen, std::string & strMsg, GUID & nPlayer)
 // 	{
-// 		NFMsg::MsgBase xMsg;
+// 		Msg::MsgBase xMsg;
 // 		if (!xMsg.ParseFromArray(msg, nLen))
 // 		{
 // 			char szData[MAX_PATH] = { 0 };
@@ -194,7 +194,7 @@ enum SERVER_TYPES
 // 
 // 	static bool Receive(const int nMsgID, const char * msg, const uint32_t nLen, google::protobuf::Message & xData, GUID & nPlayer)
 // 	{
-// 		NFMsg::MsgBase xMsg;
+// 		Msg::MsgBase xMsg;
 // 		if (!xMsg.ParseFromArray(msg, nLen))
 // 		{
 // 			char szData[MAX_PATH] = { 0 };

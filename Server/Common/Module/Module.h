@@ -1,5 +1,5 @@
-#ifndef H_MODULE_INC
-#define H_MODULE_INC
+#ifndef H_Module_INC
+#define H_Module_INC
 class Module
 {
 

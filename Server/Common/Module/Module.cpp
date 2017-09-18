@@ -1,5 +1,5 @@
-#ifndef H__MODULE_H
-#define H__MODULE_H
+#ifndef H__Module_H
+#define H__Module_H
 
 #include <string>
 

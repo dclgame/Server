@@ -1,12 +1,12 @@
-#ifndef __DEPENDS_MODULE_APPLICATION_HEADER__
-#define __DEPENDS_MODULE_APPLICATION_HEADER__
+#ifndef __DEPENDS_Module_APPLICATION_HEADER__
+#define __DEPENDS_Module_APPLICATION_HEADER__
 #include <string>
 #include "Module.h"
 #include "NFPlatform.h"
 using namespace std;
 //typedef std::function<bool(const std::string &strFileName, std::string &strContent)> GET_FILECONTENT_FUNCTOR;
 
-#define FIND_MODULE(classBaseName, className)  \
+#define FIND_Module(classBaseName, className)  \
 	assert((TIsDerived<classBaseName, NFIModule>::Result));
 
 class Application : public Module

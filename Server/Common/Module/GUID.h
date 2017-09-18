@@ -9,7 +9,7 @@
 #include "HtString.h"
 
 
-namespace Module
+namespace module
 {
 	struct GUID
 	{

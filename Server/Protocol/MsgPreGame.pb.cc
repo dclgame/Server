@@ -20,9 +20,9 @@ namespace Msg {
 
 namespace {
 
-const ::google::protobuf::Descriptor* ServerIoReport_descriptor_ = NULL;
+const ::google::protobuf::Descriptor* ServerInfoReport_descriptor_ = NULL;
 const ::google::protobuf::internal::GeneratedMessageReflection*
-  ServerIoReport_reflection_ = NULL;
+  ServerInfoReport_reflection_ = NULL;
 const ::google::protobuf::Descriptor* ServerIoReportList_descriptor_ = NULL;
 const ::google::protobuf::internal::GeneratedMessageReflection*
   ServerIoReportList_reflection_ = NULL;
@@ -95,28 +95,28 @@ void protobuf_AssignDesc_MsgPreGame_2eproto() {
     ::google::protobuf::DescriptorPool::generated_pool()->FindFileByName(
       "MsgPreGame.proto");
   GOOGLE_CHECK(file != NULL);
-  ServerIoReport_descriptor_ = file->message_type(0);
-  static const int ServerIoReport_offsets_[8] = {
-    GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(ServerIoReport, server_id_),
-    GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(ServerIoReport, server_name_),
-    GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(ServerIoReport, server_ip_),
-    GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(ServerIoReport, server_port_),
-    GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(ServerIoReport, server_max_online_),
-    GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(ServerIoReport, server_cur_count_),
-    GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(ServerIoReport, server_state_),
-    GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(ServerIoReport, server_type_),
+  ServerInfoReport_descriptor_ = file->message_type(0);
+  static const int ServerInfoReport_offsets_[8] = {
+    GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(ServerInfoReport, server_id_),
+    GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(ServerInfoReport, server_name_),
+    GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(ServerInfoReport, server_ip_),
+    GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(ServerInfoReport, server_port_),
+    GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(ServerInfoReport, server_max_online_),
+    GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(ServerInfoReport, server_cur_count_),
+    GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(ServerInfoReport, server_state_),
+    GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(ServerInfoReport, server_type_),
   };
-  ServerIoReport_reflection_ =
+  ServerInfoReport_reflection_ =
     new ::google::protobuf::internal::GeneratedMessageReflection(
-      ServerIoReport_descriptor_,
-      ServerIoReport::default_instance_,
-      ServerIoReport_offsets_,
-      GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(ServerIoReport, _has_bits_[0]),
-      GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(ServerIoReport, _unknown_fields_),
+      ServerInfoReport_descriptor_,
+      ServerInfoReport::default_instance_,
+      ServerInfoReport_offsets_,
+      GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(ServerInfoReport, _has_bits_[0]),
+      GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(ServerInfoReport, _unknown_fields_),
       -1,
       ::google::protobuf::DescriptorPool::generated_pool(),
       ::google::protobuf::MessageFactory::generated_factory(),
-      sizeof(ServerIoReport));
+      sizeof(ServerInfoReport));
   ServerIoReportList_descriptor_ = file->message_type(1);
   static const int ServerIoReportList_offsets_[1] = {
     GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(ServerIoReportList, server_list_),
@@ -480,7 +480,7 @@ inline void protobuf_AssignDescriptorsOnce() {
 void protobuf_RegisterTypes(const ::std::string&) {
   protobuf_AssignDescriptorsOnce();
   ::google::protobuf::MessageFactory::InternalRegisterGeneratedMessage(
-    ServerIoReport_descriptor_, &ServerIoReport::default_instance());
+    ServerInfoReport_descriptor_, &ServerInfoReport::default_instance());
   ::google::protobuf::MessageFactory::InternalRegisterGeneratedMessage(
     ServerIoReportList_descriptor_, &ServerIoReportList::default_instance());
   ::google::protobuf::MessageFactory::InternalRegisterGeneratedMessage(
@@ -526,8 +526,8 @@ void protobuf_RegisterTypes(const ::std::string&) {
 }  // namespace
 
 void protobuf_ShutdownFile_MsgPreGame_2eproto() {
-  delete ServerIoReport::default_instance_;
-  delete ServerIoReport_reflection_;
+  delete ServerInfoReport::default_instance_;
+  delete ServerInfoReport_reflection_;
   delete ServerIoReportList::default_instance_;
   delete ServerIoReportList_reflection_;
   delete AckEventResult::default_instance_;
@@ -580,64 +580,64 @@ void protobuf_AddDesc_MsgPreGame_2eproto() {
   ::Msg::protobuf_AddDesc_MsgBase_2eproto();
   ::google::protobuf::DescriptorPool::InternalAddGeneratedFile(
     "\n\020MsgPreGame.proto\022\003Msg\032\017MsgDefine.proto"
-    "\032\rMsgBase.proto\"\323\001\n\016ServerIoReport\022\021\n\tse"
-    "rver_id\030\001 \002(\005\022\023\n\013server_name\030\002 \002(\014\022\021\n\tse"
-    "rver_ip\030\003 \002(\014\022\023\n\013server_port\030\004 \002(\005\022\031\n\021se"
-    "rver_max_online\030\005 \002(\005\022\030\n\020server_cur_coun"
-    "t\030\006 \002(\005\022\'\n\014server_state\030\007 \002(\0162\021.Msg.ESer"
-    "verState\022\023\n\013server_type\030\010 \002(\005\">\n\022ServerI"
-    "oReportList\022(\n\013server_list\030\001 \003(\0132\023.Msg.S"
-    "erverIoReport\"}\n\016AckEventResult\022\'\n\nevent"
-    "_code\030\001 \002(\0162\023.Msg.EGameEventCode\022 \n\014even"
-    "t_object\030\002 \001(\0132\n.Msg.Ident\022 \n\014event_clie"
-    "nt\030\003 \001(\0132\n.Msg.Ident\"\350\001\n\017ReqAccountLogin"
-    "\022\017\n\007account\030\002 \002(\014\022\020\n\010password\030\003 \002(\014\022\025\n\rs"
-    "ecurity_code\030\004 \002(\014\022\020\n\010signBuff\030\005 \002(\014\022\025\n\r"
-    "clientVersion\030\006 \002(\005\022\021\n\tloginMode\030\007 \002(\005\022\020"
-    "\n\010clientIP\030\010 \002(\005\022\021\n\tclientMAC\030\t \002(\003\022\021\n\td"
-    "evice_io\030\n \002(\014\022\020\n\010extra_io\030\013 \002(\014\022\025\n\rplat"
-    "form_type\030\014 \001(\005\"5\n\020ReqAccountLogout\022\017\n\007a"
-    "ccount\030\002 \002(\014\022\020\n\010extra_io\030\003 \002(\014\"b\n\010Server"
-    "Io\022\021\n\tserver_id\030\001 \002(\005\022\014\n\004name\030\002 \002(\014\022\022\n\nw"
-    "ait_count\030\003 \002(\005\022!\n\006status\030\004 \002(\0162\021.Msg.ES"
-    "erverState\"5\n\rReqServerList\022$\n\004type\030\001 \002("
-    "\0162\026.Msg.ReqServerListType\"P\n\rAckServerLi"
-    "st\022$\n\004type\030\001 \002(\0162\026.Msg.ReqServerListType"
-    "\022\031\n\002io\030\002 \003(\0132\r.Msg.ServerIo\"b\n\017ReqConnec"
-    "tWorld\022\020\n\010world_id\030\001 \002(\005\022\017\n\007account\030\002 \001("
-    "\014\022\032\n\006sender\030\003 \001(\0132\n.Msg.Ident\022\020\n\010login_i"
-    "d\030\004 \001(\005\"\241\001\n\025AckConnectWorldResult\022\020\n\010wor"
-    "ld_id\030\001 \002(\005\022\032\n\006sender\030\002 \002(\0132\n.Msg.Ident\022"
-    "\020\n\010login_id\030\003 \002(\005\022\017\n\007account\030\004 \002(\014\022\020\n\010wo"
-    "rld_ip\030\005 \002(\014\022\022\n\nworld_port\030\006 \002(\005\022\021\n\tworl"
-    "d_key\030\007 \002(\014\"#\n\017ReqSelectServer\022\020\n\010world_"
-    "id\030\001 \002(\005\"5\n\020ReqKickFromWorld\022\020\n\010world_id"
-    "\030\001 \002(\005\022\017\n\007account\030\002 \002(\014\"/\n\013ReqRoleList\022\017"
-    "\n\007game_id\030\001 \002(\005\022\017\n\007account\030\002 \002(\014\"\367\001\n\nRol"
-    "eLiteIo\022\026\n\002id\030\001 \002(\0132\n.Msg.Ident\022\016\n\006caree"
-    "r\030\002 \002(\005\022\013\n\003sex\030\003 \002(\005\022\014\n\004race\030\004 \002(\005\022\021\n\tno"
-    "ob_name\030\005 \002(\014\022\017\n\007game_id\030\006 \002(\005\022\022\n\nrole_l"
-    "evel\030\007 \002(\005\022\023\n\013delete_time\030\010 \002(\005\022\020\n\010reg_t"
-    "ime\030\t \002(\005\022\031\n\021last_offline_time\030\n \002(\005\022\027\n\017"
-    "last_offline_ip\030\013 \002(\005\022\023\n\013view_record\030\014 \002"
-    "(\014\"7\n\021AckRoleLiteIoList\022\"\n\tchar_data\030\001 \003"
-    "(\0132\017.Msg.RoleLiteIo\"o\n\rReqCreateRole\022\017\n\007"
-    "account\030\001 \002(\014\022\016\n\006career\030\002 \002(\005\022\013\n\003sex\030\003 \002"
-    "(\005\022\014\n\004race\030\004 \002(\005\022\021\n\tnoob_name\030\005 \002(\014\022\017\n\007g"
-    "ame_id\030\006 \002(\005\"\?\n\rReqDeleteRole\022\017\n\007account"
-    "\030\001 \002(\014\022\014\n\004name\030\002 \002(\014\022\017\n\007game_id\030\003 \002(\005\"@\n"
-    "\016ReqRecoverRole\022\017\n\007account\030\001 \002(\014\022\014\n\004name"
-    "\030\002 \002(\014\022\017\n\007game_id\030\003 \002(\005\" \n\017ServerHeartBe"
-    "at\022\r\n\005count\030\001 \001(\005\"-\n\020RoleOnlineNotify\022\031\n"
-    "\005guild\030\001 \001(\0132\n.Msg.Ident\".\n\021RoleOfflineN"
-    "otify\022\031\n\005guild\030\001 \001(\0132\n.Msg.Ident*Z\n\014ESer"
-    "verState\022\r\n\tEST_CRASH\020\000\022\016\n\nEST_NARMAL\020\001\022"
-    "\014\n\010EST_BUSY\020\002\022\014\n\010EST_FIRE\020\003\022\017\n\013EST_MAINT"
-    "EN\020\004*@\n\021ReqServerListType\022\025\n\021RSLT_WORLD_"
-    "SERVER\020\000\022\024\n\020RSLT_GAMES_ERVER\020\001", 2230);
+    "\032\rMsgBase.proto\"\325\001\n\020ServerInfoReport\022\021\n\t"
+    "server_id\030\001 \002(\005\022\023\n\013server_name\030\002 \002(\014\022\021\n\t"
+    "server_ip\030\003 \002(\014\022\023\n\013server_port\030\004 \002(\005\022\031\n\021"
+    "server_max_online\030\005 \002(\005\022\030\n\020server_cur_co"
+    "unt\030\006 \002(\005\022\'\n\014server_state\030\007 \002(\0162\021.Msg.ES"
+    "erverState\022\023\n\013server_type\030\010 \002(\005\"@\n\022Serve"
+    "rIoReportList\022*\n\013server_list\030\001 \003(\0132\025.Msg"
+    ".ServerInfoReport\"}\n\016AckEventResult\022\'\n\ne"
+    "vent_code\030\001 \002(\0162\023.Msg.EGameEventCode\022 \n\014"
+    "event_object\030\002 \001(\0132\n.Msg.Ident\022 \n\014event_"
+    "client\030\003 \001(\0132\n.Msg.Ident\"\350\001\n\017ReqAccountL"
+    "ogin\022\017\n\007account\030\002 \002(\014\022\020\n\010password\030\003 \002(\014\022"
+    "\025\n\rsecurity_code\030\004 \002(\014\022\020\n\010signBuff\030\005 \002(\014"
+    "\022\025\n\rclientVersion\030\006 \002(\005\022\021\n\tloginMode\030\007 \002"
+    "(\005\022\020\n\010clientIP\030\010 \002(\005\022\021\n\tclientMAC\030\t \002(\003\022"
+    "\021\n\tdevice_io\030\n \002(\014\022\020\n\010extra_io\030\013 \002(\014\022\025\n\r"
+    "platform_type\030\014 \001(\005\"5\n\020ReqAccountLogout\022"
+    "\017\n\007account\030\002 \002(\014\022\020\n\010extra_io\030\003 \002(\014\"b\n\010Se"
+    "rverIo\022\021\n\tserver_id\030\001 \002(\005\022\014\n\004name\030\002 \002(\014\022"
+    "\022\n\nwait_count\030\003 \002(\005\022!\n\006status\030\004 \002(\0162\021.Ms"
+    "g.EServerState\"5\n\rReqServerList\022$\n\004type\030"
+    "\001 \002(\0162\026.Msg.ReqServerListType\"P\n\rAckServ"
+    "erList\022$\n\004type\030\001 \002(\0162\026.Msg.ReqServerList"
+    "Type\022\031\n\002io\030\002 \003(\0132\r.Msg.ServerIo\"b\n\017ReqCo"
+    "nnectWorld\022\020\n\010world_id\030\001 \002(\005\022\017\n\007account\030"
+    "\002 \001(\014\022\032\n\006sender\030\003 \001(\0132\n.Msg.Ident\022\020\n\010log"
+    "in_id\030\004 \001(\005\"\241\001\n\025AckConnectWorldResult\022\020\n"
+    "\010world_id\030\001 \002(\005\022\032\n\006sender\030\002 \002(\0132\n.Msg.Id"
+    "ent\022\020\n\010login_id\030\003 \002(\005\022\017\n\007account\030\004 \002(\014\022\020"
+    "\n\010world_ip\030\005 \002(\014\022\022\n\nworld_port\030\006 \002(\005\022\021\n\t"
+    "world_key\030\007 \002(\014\"#\n\017ReqSelectServer\022\020\n\010wo"
+    "rld_id\030\001 \002(\005\"5\n\020ReqKickFromWorld\022\020\n\010worl"
+    "d_id\030\001 \002(\005\022\017\n\007account\030\002 \002(\014\"/\n\013ReqRoleLi"
+    "st\022\017\n\007game_id\030\001 \002(\005\022\017\n\007account\030\002 \002(\014\"\367\001\n"
+    "\nRoleLiteIo\022\026\n\002id\030\001 \002(\0132\n.Msg.Ident\022\016\n\006c"
+    "areer\030\002 \002(\005\022\013\n\003sex\030\003 \002(\005\022\014\n\004race\030\004 \002(\005\022\021"
+    "\n\tnoob_name\030\005 \002(\014\022\017\n\007game_id\030\006 \002(\005\022\022\n\nro"
+    "le_level\030\007 \002(\005\022\023\n\013delete_time\030\010 \002(\005\022\020\n\010r"
+    "eg_time\030\t \002(\005\022\031\n\021last_offline_time\030\n \002(\005"
+    "\022\027\n\017last_offline_ip\030\013 \002(\005\022\023\n\013view_record"
+    "\030\014 \002(\014\"7\n\021AckRoleLiteIoList\022\"\n\tchar_data"
+    "\030\001 \003(\0132\017.Msg.RoleLiteIo\"o\n\rReqCreateRole"
+    "\022\017\n\007account\030\001 \002(\014\022\016\n\006career\030\002 \002(\005\022\013\n\003sex"
+    "\030\003 \002(\005\022\014\n\004race\030\004 \002(\005\022\021\n\tnoob_name\030\005 \002(\014\022"
+    "\017\n\007game_id\030\006 \002(\005\"\?\n\rReqDeleteRole\022\017\n\007acc"
+    "ount\030\001 \002(\014\022\014\n\004name\030\002 \002(\014\022\017\n\007game_id\030\003 \002("
+    "\005\"@\n\016ReqRecoverRole\022\017\n\007account\030\001 \002(\014\022\014\n\004"
+    "name\030\002 \002(\014\022\017\n\007game_id\030\003 \002(\005\" \n\017ServerHea"
+    "rtBeat\022\r\n\005count\030\001 \001(\005\"-\n\020RoleOnlineNotif"
+    "y\022\031\n\005guild\030\001 \001(\0132\n.Msg.Ident\".\n\021RoleOffl"
+    "ineNotify\022\031\n\005guild\030\001 \001(\0132\n.Msg.Ident*Z\n\014"
+    "EServerState\022\r\n\tEST_CRASH\020\000\022\016\n\nEST_NARMA"
+    "L\020\001\022\014\n\010EST_BUSY\020\002\022\014\n\010EST_FIRE\020\003\022\017\n\013EST_M"
+    "AINTEN\020\004*@\n\021ReqServerListType\022\025\n\021RSLT_WO"
+    "RLD_SERVER\020\000\022\024\n\020RSLT_GAMES_ERVER\020\001", 2234);
   ::google::protobuf::MessageFactory::InternalRegisterGeneratedFile(
     "MsgPreGame.proto", &protobuf_RegisterTypes);
-  ServerIoReport::default_instance_ = new ServerIoReport();
+  ServerInfoReport::default_instance_ = new ServerInfoReport();
   ServerIoReportList::default_instance_ = new ServerIoReportList();
   AckEventResult::default_instance_ = new AckEventResult();
   ReqAccountLogin::default_instance_ = new ReqAccountLogin();
@@ -658,7 +658,7 @@ void protobuf_AddDesc_MsgPreGame_2eproto() {
   ServerHeartBeat::default_instance_ = new ServerHeartBeat();
   RoleOnlineNotify::default_instance_ = new RoleOnlineNotify();
   RoleOfflineNotify::default_instance_ = new RoleOfflineNotify();
-  ServerIoReport::default_instance_->InitAsDefaultInstance();
+  ServerInfoReport::default_instance_->InitAsDefaultInstance();
   ServerIoReportList::default_instance_->InitAsDefaultInstance();
   AckEventResult::default_instance_->InitAsDefaultInstance();
   ReqAccountLogin::default_instance_->InitAsDefaultInstance();
@@ -723,31 +723,31 @@ bool ReqServerListType_IsValid(int value) {
 // ===================================================================
 
 #ifndef _MSC_VER
-const int ServerIoReport::kServerIdFieldNumber;
-const int ServerIoReport::kServerNameFieldNumber;
-const int ServerIoReport::kServerIpFieldNumber;
-const int ServerIoReport::kServerPortFieldNumber;
-const int ServerIoReport::kServerMaxOnlineFieldNumber;
-const int ServerIoReport::kServerCurCountFieldNumber;
-const int ServerIoReport::kServerStateFieldNumber;
-const int ServerIoReport::kServerTypeFieldNumber;
+const int ServerInfoReport::kServerIdFieldNumber;
+const int ServerInfoReport::kServerNameFieldNumber;
+const int ServerInfoReport::kServerIpFieldNumber;
+const int ServerInfoReport::kServerPortFieldNumber;
+const int ServerInfoReport::kServerMaxOnlineFieldNumber;
+const int ServerInfoReport::kServerCurCountFieldNumber;
+const int ServerInfoReport::kServerStateFieldNumber;
+const int ServerInfoReport::kServerTypeFieldNumber;
 #endif  // !_MSC_VER
 
-ServerIoReport::ServerIoReport()
+ServerInfoReport::ServerInfoReport()
   : ::google::protobuf::Message() {
   SharedCtor();
 }
 
-void ServerIoReport::InitAsDefaultInstance() {
+void ServerInfoReport::InitAsDefaultInstance() {
 }
 
-ServerIoReport::ServerIoReport(const ServerIoReport& from)
+ServerInfoReport::ServerInfoReport(const ServerInfoReport& from)
   : ::google::protobuf::Message() {
   SharedCtor();
   MergeFrom(from);
 }
 
-void ServerIoReport::SharedCtor() {
+void ServerInfoReport::SharedCtor() {
   _cached_size_ = 0;
   server_id_ = 0;
   server_name_ = const_cast< ::std::string*>(&::google::protobuf::internal::kEmptyString);
@@ -760,11 +760,11 @@ void ServerIoReport::SharedCtor() {
   ::memset(_has_bits_, 0, sizeof(_has_bits_));
 }
 
-ServerIoReport::~ServerIoReport() {
+ServerInfoReport::~ServerInfoReport() {
   SharedDtor();
 }
 
-void ServerIoReport::SharedDtor() {
+void ServerInfoReport::SharedDtor() {
   if (server_name_ != &::google::protobuf::internal::kEmptyString) {
     delete server_name_;
   }
@@ -775,28 +775,28 @@ void ServerIoReport::SharedDtor() {
   }
 }
 
-void ServerIoReport::SetCachedSize(int size) const {
+void ServerInfoReport::SetCachedSize(int size) const {
   GOOGLE_SAFE_CONCURRENT_WRITES_BEGIN();
   _cached_size_ = size;
   GOOGLE_SAFE_CONCURRENT_WRITES_END();
 }
-const ::google::protobuf::Descriptor* ServerIoReport::descriptor() {
+const ::google::protobuf::Descriptor* ServerInfoReport::descriptor() {
   protobuf_AssignDescriptorsOnce();
-  return ServerIoReport_descriptor_;
+  return ServerInfoReport_descriptor_;
 }
 
-const ServerIoReport& ServerIoReport::default_instance() {
+const ServerInfoReport& ServerInfoReport::default_instance() {
   if (default_instance_ == NULL) protobuf_AddDesc_MsgPreGame_2eproto();
   return *default_instance_;
 }
 
-ServerIoReport* ServerIoReport::default_instance_ = NULL;
+ServerInfoReport* ServerInfoReport::default_instance_ = NULL;
 
-ServerIoReport* ServerIoReport::New() const {
-  return new ServerIoReport;
+ServerInfoReport* ServerInfoReport::New() const {
+  return new ServerInfoReport;
 }
 
-void ServerIoReport::Clear() {
+void ServerInfoReport::Clear() {
   if (_has_bits_[0 / 32] & (0xffu << (0 % 32))) {
     server_id_ = 0;
     if (has_server_name()) {
@@ -819,7 +819,7 @@ void ServerIoReport::Clear() {
   mutable_unknown_fields()->Clear();
 }
 
-bool ServerIoReport::MergePartialFromCodedStream(
+bool ServerInfoReport::MergePartialFromCodedStream(
     ::google::protobuf::io::CodedInputStream* input) {
 #define DO_(EXPRESSION) if (!(EXPRESSION)) return false
   ::google::protobuf::uint32 tag;
@@ -969,7 +969,7 @@ bool ServerIoReport::MergePartialFromCodedStream(
 #undef DO_
 }
 
-void ServerIoReport::SerializeWithCachedSizes(
+void ServerInfoReport::SerializeWithCachedSizes(
     ::google::protobuf::io::CodedOutputStream* output) const {
   // required int32 server_id = 1;
   if (has_server_id()) {
@@ -1020,7 +1020,7 @@ void ServerIoReport::SerializeWithCachedSizes(
   }
 }
 
-::google::protobuf::uint8* ServerIoReport::SerializeWithCachedSizesToArray(
+::google::protobuf::uint8* ServerInfoReport::SerializeWithCachedSizesToArray(
     ::google::protobuf::uint8* target) const {
   // required int32 server_id = 1;
   if (has_server_id()) {
@@ -1074,7 +1074,7 @@ void ServerIoReport::SerializeWithCachedSizes(
   return target;
 }
 
-int ServerIoReport::ByteSize() const {
+int ServerInfoReport::ByteSize() const {
   int total_size = 0;
 
   if (_has_bits_[0 / 32] & (0xffu << (0 % 32))) {
@@ -1145,10 +1145,10 @@ int ServerIoReport::ByteSize() const {
   return total_size;
 }
 
-void ServerIoReport::MergeFrom(const ::google::protobuf::Message& from) {
+void ServerInfoReport::MergeFrom(const ::google::protobuf::Message& from) {
   GOOGLE_CHECK_NE(&from, this);
-  const ServerIoReport* source =
-    ::google::protobuf::internal::dynamic_cast_if_available<const ServerIoReport*>(
+  const ServerInfoReport* source =
+    ::google::protobuf::internal::dynamic_cast_if_available<const ServerInfoReport*>(
       &from);
   if (source == NULL) {
     ::google::protobuf::internal::ReflectionOps::Merge(from, this);
@@ -1157,7 +1157,7 @@ void ServerIoReport::MergeFrom(const ::google::protobuf::Message& from) {
   }
 }
 
-void ServerIoReport::MergeFrom(const ServerIoReport& from) {
+void ServerInfoReport::MergeFrom(const ServerInfoReport& from) {
   GOOGLE_CHECK_NE(&from, this);
   if (from._has_bits_[0 / 32] & (0xffu << (0 % 32))) {
     if (from.has_server_id()) {
@@ -1188,25 +1188,25 @@ void ServerIoReport::MergeFrom(const ServerIoReport& from) {
   mutable_unknown_fields()->MergeFrom(from.unknown_fields());
 }
 
-void ServerIoReport::CopyFrom(const ::google::protobuf::Message& from) {
+void ServerInfoReport::CopyFrom(const ::google::protobuf::Message& from) {
   if (&from == this) return;
   Clear();
   MergeFrom(from);
 }
 
-void ServerIoReport::CopyFrom(const ServerIoReport& from) {
+void ServerInfoReport::CopyFrom(const ServerInfoReport& from) {
   if (&from == this) return;
   Clear();
   MergeFrom(from);
 }
 
-bool ServerIoReport::IsInitialized() const {
+bool ServerInfoReport::IsInitialized() const {
   if ((_has_bits_[0] & 0x000000ff) != 0x000000ff) return false;
 
   return true;
 }
 
-void ServerIoReport::Swap(ServerIoReport* other) {
+void ServerInfoReport::Swap(ServerInfoReport* other) {
   if (other != this) {
     std::swap(server_id_, other->server_id_);
     std::swap(server_name_, other->server_name_);
@@ -1222,11 +1222,11 @@ void ServerIoReport::Swap(ServerIoReport* other) {
   }
 }
 
-::google::protobuf::Metadata ServerIoReport::GetMetadata() const {
+::google::protobuf::Metadata ServerInfoReport::GetMetadata() const {
   protobuf_AssignDescriptorsOnce();
   ::google::protobuf::Metadata metadata;
-  metadata.descriptor = ServerIoReport_descriptor_;
-  metadata.reflection = ServerIoReport_reflection_;
+  metadata.descriptor = ServerInfoReport_descriptor_;
+  metadata.reflection = ServerInfoReport_reflection_;
   return metadata;
 }
 
@@ -1298,7 +1298,7 @@ bool ServerIoReportList::MergePartialFromCodedStream(
   ::google::protobuf::uint32 tag;
   while ((tag = input->ReadTag()) != 0) {
     switch (::google::protobuf::internal::WireFormatLite::GetTagFieldNumber(tag)) {
-      // repeated .Msg.ServerIoReport server_list = 1;
+      // repeated .Msg.ServerInfoReport server_list = 1;
       case 1: {
         if (::google::protobuf::internal::WireFormatLite::GetTagWireType(tag) ==
             ::google::protobuf::internal::WireFormatLite::WIRETYPE_LENGTH_DELIMITED) {
@@ -1331,7 +1331,7 @@ bool ServerIoReportList::MergePartialFromCodedStream(
 
 void ServerIoReportList::SerializeWithCachedSizes(
     ::google::protobuf::io::CodedOutputStream* output) const {
-  // repeated .Msg.ServerIoReport server_list = 1;
+  // repeated .Msg.ServerInfoReport server_list = 1;
   for (int i = 0; i < this->server_list_size(); i++) {
     ::google::protobuf::internal::WireFormatLite::WriteMessageMaybeToArray(
       1, this->server_list(i), output);
@@ -1345,7 +1345,7 @@ void ServerIoReportList::SerializeWithCachedSizes(
 
 ::google::protobuf::uint8* ServerIoReportList::SerializeWithCachedSizesToArray(
     ::google::protobuf::uint8* target) const {
-  // repeated .Msg.ServerIoReport server_list = 1;
+  // repeated .Msg.ServerInfoReport server_list = 1;
   for (int i = 0; i < this->server_list_size(); i++) {
     target = ::google::protobuf::internal::WireFormatLite::
       WriteMessageNoVirtualToArray(
@@ -1362,7 +1362,7 @@ void ServerIoReportList::SerializeWithCachedSizes(
 int ServerIoReportList::ByteSize() const {
   int total_size = 0;
 
-  // repeated .Msg.ServerIoReport server_list = 1;
+  // repeated .Msg.ServerInfoReport server_list = 1;
   total_size += 1 * this->server_list_size();
   for (int i = 0; i < this->server_list_size(); i++) {
     total_size +=

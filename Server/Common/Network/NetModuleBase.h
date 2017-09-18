@@ -1,11 +1,18 @@
-#ifndef H_NET_MODULEBASE_H
-#define H_NET_MODULEBASE_H
+#ifndef H_NET_ModuleBASE_H
+#define H_NET_ModuleBASE_H
 
 #include <iostream>
 #include <iosfwd>
 #include "GUID.h"
 #include "Module.h"
 #include "Net.h"
+#include "GUID.h"
+#include "MsgDefine.pb.h"
+#include "MsgShare.pb.h"
+#include "MsgBase.pb.h"
+#include "MsgPreGame.pb.h"
+#include "Vector2.hpp"
+#include "Vector3.hpp"
 #ifdef _MSC_VER
 #pragma warning(disable: 4244 4267)
 #endif
@@ -49,33 +56,33 @@ class NetModuleBase
 	: public Module
 {
 public:
-	static GUID PBToGUid(Msg::Ident xID)
+	static module::GUID PBToID(Msg::Ident xID)
 	{
-		GUID  xIdent;
+		module::GUID  xIdent;
 		xIdent.nHead64 = xID.svrid();
 		xIdent.nData64 = xID.index();
 
 		return xIdent;
 	}
 
-	static Vector2 PBToNF(Msg::Vector2 value)
-	{
-		Vector2  vector;
-		vector.SetX(value.x());
-		vector.SetY(value.y());
-		return vector;
-	}
+// 	static Vector2 PBToID(Msg::Vector2 value)
+// 	{
+// 		Vector2  vector;
+// 		vector.SetX(value.x());
+// 		vector.SetY(value.y());
+// 		return vector;
+// 	}
+// 
+// 	static Vector3 PBToID(Msg::Vector3 value)
+// 	{
+// 		Vector3  vector;
+// 		vector.SetX(value.x());
+// 		vector.SetY(value.y());
+// 		vector.SetZ(value.z());
+// 		return vector;
+// 	}
 
-	static Vector3 PBToNF(Msg::Vector3 value)
-	{
-		Vector3  vector;
-		vector.SetX(value.x());
-		vector.SetY(value.y());
-		vector.SetZ(value.z());
-		return vector;
-	}
-
-	static Msg::Ident NFToPB(GUID xID)
+	static Msg::Ident IDToPB(module::GUID xID)
 	{
 		Msg::Ident  xIdent;
 		xIdent.set_svrid(xID.nHead64);
@@ -84,22 +91,22 @@ public:
 		return xIdent;
 	}
 
-	static Msg::Vector2 NFToPB(Vector2 value)
-	{
-		Msg::Vector2  vector;
-		vector.set_x(value.X());
-		vector.set_y(value.Y());
-		return vector;
-	}
-
-	static Msg::Vector3 NFToPB(Vector3 value)
-	{
-		Msg::Vector3  vector;
-		vector.set_x(value.X());
-		vector.set_y(value.Y());
-		vector.set_z(value.Z());
-		return vector;
-	}
+// 	static Msg::Vector2 PBToID(Vector2 value)
+// 	{
+// 		Msg::Vector2  vector;
+// 		vector.set_x(value.X());
+// 		vector.set_y(value.Y());
+// 		return vector;
+// 	}
+// 
+// 	static Msg::Vector3 PBToID(Vector3 value)
+// 	{
+// 		Msg::Vector3  vector;
+// 		vector.set_x(value.X());
+// 		vector.set_y(value.Y());
+// 		vector.set_z(value.Z());
+// 		return vector;
+// 	}
 
 	template<typename BaseType>
 	bool AddReceiveCallBack(const int nMsgID, BaseType* pBase, void (BaseType::*handleRecieve)(const SOCKID, const int, const char*, const uint32_t))
@@ -120,7 +127,7 @@ public:
 	}
 
 	template<typename BaseType>
-	bool AddEventCallBack(BaseType* pBase, void (BaseType::*handler)(const SOCKID, const NF_NET_EVENT, Net*))
+	bool AddEventCallBack(BaseType* pBase, void (BaseType::*handler)(const SOCKID, const NET_EVENT, Net*))
 	{
 		NET_EVENT_FUNCTOR functor = std::bind(handler, pBase, std::placeholders::_1, std::placeholders::_2, std::placeholders::_3);
 		NET_EVENT_FUNCTOR_PTR functorPtr(new NET_EVENT_FUNCTOR(functor));
@@ -128,7 +135,7 @@ public:
 		return AddEventCallBack(functorPtr);
 	}
 
-	static bool ReceivePB(const int nMsgID, const char * msg, const uint32_t nLen, std::string & strMsg, GUID & nPlayer)
+	static bool ReceivePB(const int nMsgID, const char * msg, const uint32_t nLen, std::string & strMsg, module::GUID & nPlayer)
 	{
 		Msg::MsgBase xMsg;
 		if (!xMsg.ParseFromArray(msg, nLen))
@@ -142,17 +149,17 @@ public:
 
 		strMsg.assign(xMsg.msg_data().data(), xMsg.msg_data().length());
 
-		nPlayer = PBToNF(xMsg.player_id());
+		nPlayer = PBToID(xMsg.player_id());
 
 		return true;
 	}
 
-	static bool ReceivePB(const int nMsgID, const std::string& strMsgData, google::protobuf::Message & xData, GUID & nPlayer)
+	static bool ReceivePB(const int nMsgID, const std::string& strMsgData, google::protobuf::Message & xData, module::GUID & nPlayer)
 	{
 		return ReceivePB(nMsgID, strMsgData.c_str(), (uint32_t)strMsgData.length(), xData, nPlayer);
 	}
 
-	static bool ReceivePB(const int nMsgID, const char * msg, const uint32_t nLen, google::protobuf::Message & xData, GUID & nPlayer)
+	static bool ReceivePB(const int nMsgID, const char * msg, const uint32_t nLen, google::protobuf::Message & xData, module::GUID & nPlayer)
 	{
 		Msg::MsgBase xMsg;
 		if (!xMsg.ParseFromArray(msg, nLen))
@@ -173,7 +180,7 @@ public:
 			return false;
 		}
 
-		nPlayer = PBToNF(xMsg.player_id());
+		nPlayer = PBToID(xMsg.player_id());
 
 		return true;
 	}
@@ -205,10 +212,10 @@ public:
 
 	virtual bool SendMsg2AllClient(const uint16_t nMsgID, const google::protobuf::Message& xData) = 0;
 
-	virtual bool SendMsg(const uint16_t nMsgID, const google::protobuf::Message& xData, const SOCKID nSockIndex, const GUID nPlayer, const std::vector<GUID>* pClientIDList = NULL) = 0;
+	virtual bool SendMsg(const uint16_t nMsgID, const google::protobuf::Message& xData, const SOCKID nSockIndex, const  module::GUID nPlayer, const std::vector<module::GUID>* pClientIDList = NULL) = 0;
 
-	virtual bool SendMsg(const uint16_t nMsgID, const std::string& strData, const SOCKID nSockIndex, const GUID nPlayer, const std::vector<GUID>* pClientIDList = NULL) = 0;
-
+	virtual bool SendMsg(const uint16_t nMsgID, const std::string& strData, const SOCKID nSockIndex, const module::GUID nPlayer, const std::vector<module::GUID>* pClientIDList = NULL) = 0;
+ 
 	virtual Net* GetNet() = 0;
 };
 

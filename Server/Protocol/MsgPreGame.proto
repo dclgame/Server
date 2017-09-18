@@ -16,7 +16,7 @@ enum EServerState
 }
 
 
-message ServerIoReport//服务器之间报告服务器状态
+message ServerInfoReport//服务器之间报告服务器状态
 {
 	
 	required int32   server_id = 1;
@@ -31,7 +31,7 @@ message ServerIoReport//服务器之间报告服务器状态
 
 message ServerIoReportList//服务器之间报告服务器状态
 {
-	repeated ServerIoReport server_list = 1;
+	repeated ServerInfoReport server_list = 1;
 }
 
 message AckEventResult//返回事件结果(对或错等详细)
