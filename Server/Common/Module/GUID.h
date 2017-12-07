@@ -2,7 +2,7 @@
 #ifndef H_GUID_H
 #define H_GUID_H
 
-#include "NFPlatform.h"
+#include "Define.h"
 #include <iostream>
 #include <stdio.h>
 #include <stdlib.h>

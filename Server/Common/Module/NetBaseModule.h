@@ -5,13 +5,9 @@
 #include <iosfwd>
 #include "GUID.h"
 #include "Module.h"
-// #include "NFComm/NFNetPlugin/NFINet.h"
-// #include "NFComm/NFCore/NFQueue.hpp"
-// #include "NFComm/NFMessageDefine/MsgDefine.h"
 #ifdef _MSC_VER
 #pragma warning(disable: 4244 4267)
 #endif
-//#include "NFComm/NFMessageDefine/NFDefine.pb.h"
 #ifdef _MSC_VER
 #pragma warning(default: 4244 4267)
 #endif

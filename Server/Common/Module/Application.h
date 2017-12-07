@@ -2,7 +2,7 @@
 #define __DEPENDS_Module_APPLICATION_HEADER__
 #include <string>
 #include "Module.h"
-#include "NFPlatform.h"
+#include "Define.h"
 using namespace std;
 //typedef std::function<bool(const std::string &strFileName, std::string &strContent)> GET_FILECONTENT_FUNCTOR;
 
@@ -23,16 +23,7 @@ public:
 		T* pLogicModule = FindModule(typeid(T).name());
 		if (pLogicModule)
 		{
-// 			if (!TIsDerived<T, NFIModule>::Result)
-// 			{
-// 				return NULL;
-// 			}
-			//TODO OSX…œdynamic_cast∑µªÿ¡ÀNULL
-#if NF_PLATFORM == NF_PLATFORM_APPLE
-			T* pT = (T*)pLogicModule;
-#else
 			T* pT = dynamic_cast<T*>(pLogicModule);
-#endif
 			assert(NULL != pT);
 
 			return pT;
