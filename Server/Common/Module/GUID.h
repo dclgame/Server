@@ -90,7 +90,7 @@ namespace module
 		std::string ToString() const
 		{
 			return HtString::StrConvertFromLong(nHead64) + "-" + HtString::StrConvertFromLong(nData64);
-			//return lexical_cast<std::string>(nHead64)+"-" + lexical_cast<std::string>(nData64);
+	
 		}
 
 		bool FromString(const std::string& strID)
@@ -113,9 +113,6 @@ namespace module
 			{
 				nHead64 = HtString::StrConvertToInt(strHead);
 				nData64 = HtString::StrConvertToInt(strData);
-				//nHead64 = lexical_cast<INT64>(strHead);
-				//nData64 = lexical_cast<INT64>(strData);
-
 				return true;
 			}
 			catch (...)
