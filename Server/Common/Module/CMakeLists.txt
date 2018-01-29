@@ -32,15 +32,15 @@ function(group_by_dir src_dir)
 endfunction(group_by_dir)
 
 
-#project(AdminServer)
+#project(Common)
 
 
 file(GLOB_RECURSE ALL_FILE *.cpp *.h)
  
- group_by_dir("${CMAKE_CURRENT_SOURCE_DIR}" ${ALL_FILE})
+ #group_by_dir("${CMAKE_CURRENT_SOURCE_DIR}" ${ALL_FILE})
 
-
- add_executable(${PROJECT_NAME}  ${ALL_FILE})
+set_target_properties(${PROJECT_NAME} PROPERTIES FOLDER ${ALL_FILE}) 
+ #add_executable(${PROJECT_NAME}  ${ALL_FILE})
 
 
 

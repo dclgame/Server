@@ -1,3 +1,8 @@
+#ifndef H_DEFINE_H
+#define H_DEFINE_H
+
+ 
+#include <stdint.h>
 typedef uint32_t UINT32;
 typedef uint16_t UINT16;
 typedef uint8_t UINT8;
@@ -14,7 +19,7 @@ typedef int64_t SOCKID;
 #define GET_CLASS_NAME(className) (#className)
 
 #define SHARE_PTR std::shared_ptr
-
+#endif
 
 
  

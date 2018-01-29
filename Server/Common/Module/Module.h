@@ -1,5 +1,5 @@
-#ifndef H_Module_INC
-#define H_Module_INC
+#ifndef H_MODULE_H
+#define H_MODULE_H
 class Module
 {
 
@@ -50,16 +50,5 @@ public:
     {
         return true;
     }
-
-
- //   virtual NFIPluginManager* GetPluginManager() const
-//    {
-//        return pPluginManager;
-//    }
-
-//    std::string strName;
-
-//protected:
-//	NFIPluginManager* pPluginManager = NULL;
 };
 #endif

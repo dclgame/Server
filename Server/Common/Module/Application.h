@@ -1,12 +1,11 @@
-#ifndef __DEPENDS_Module_APPLICATION_HEADER__
-#define __DEPENDS_Module_APPLICATION_HEADER__
+#ifndef H_APPLICATION_H
+#define H_APPLICATION_H
 #include <string>
 #include "Module.h"
 #include "Define.h"
 using namespace std;
-//typedef std::function<bool(const std::string &strFileName, std::string &strContent)> GET_FILECONTENT_FUNCTOR;
 
-#define FIND_Module(classBaseName, className)  \
+#define FIND_MODULE(classBaseName, className)  \
 	assert((TIsDerived<classBaseName, NFIModule>::Result));
 
 class Application : public Module
@@ -49,9 +48,6 @@ public:
 
 	virtual const string& GetLogConfigName() const = 0;
 	virtual void SetLogConfigName(const string& strName) = 0;
-
-	//virtual void SetGetFileContentFunctor(GET_FILECONTENT_FUNCTOR fun) = 0;
-	//virtual bool GetFileContent(const std::string &strFileName, std::string &strContent) = 0;
 };
 
 #endif
