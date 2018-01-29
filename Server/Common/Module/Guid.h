@@ -1,6 +1,6 @@
 
-#ifndef H_GUID_H
-#define H_GUID_H
+#ifndef H_Guid_H
+#define H_Guid_H
 
 #include "Define.h"
 #include <iostream>
@@ -11,30 +11,30 @@
 
 namespace module
 {
-	struct GUID
+	struct Guid
 	{
 		INT64 nData64;
 		INT64 nHead64;
 
-		GUID()
+		Guid()
 		{
 			nData64 = 0;
 			nHead64 = 0;
 		}
 
-		GUID(INT64 nHeadData, INT64 nData)
+		Guid(INT64 nHeadData, INT64 nData)
 		{
 			nHead64 = nHeadData;
 			nData64 = nData;
 		}
 
-		GUID(const GUID& xData)
+		Guid(const Guid& xData)
 		{
 			nHead64 = xData.nHead64;
 			nData64 = xData.nData64;
 		}
 
-		GUID& operator=(const GUID& xData)
+		Guid& operator=(const Guid& xData)
 		{
 			nHead64 = xData.nHead64;
 			nData64 = xData.nData64;
@@ -67,17 +67,17 @@ namespace module
 			return 0 == nData64 && 0 == nHead64;
 		}
 
-		bool operator == (const GUID& id) const
+		bool operator == (const Guid& id) const
 		{
 			return this->nData64 == id.nData64 && this->nHead64 == id.nHead64;
 		}
 
-		bool operator != (const GUID& id) const
+		bool operator != (const Guid& id) const
 		{
 			return this->nData64 != id.nData64 || this->nHead64 != id.nHead64;
 		}
 
-		bool operator < (const GUID& id) const
+		bool operator < (const Guid& id) const
 		{
 			if (this->nHead64 == id.nHead64)
 			{
