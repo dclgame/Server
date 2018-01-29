@@ -25,7 +25,7 @@ DateTime::DateTime()
 
 DateTime::DateTime(char* initTimeStr)
 {
-	*this = DateTime::StrConvertToDateTime(initTimeStr);
+	//*this = DateTime::StrConvertToDateTime(initTimeStr);
 }
 
 DateTime::~DateTime()
@@ -484,7 +484,7 @@ tm DateTime::DateTimeConvertToTm(DateTime httime, int& millsecd)
 {
 	tm tmtime;
 
-	tmtime.tm_year = httime.Year - 1900;//注意这里不是1970
+	tmtime.tm_year = httime.Year - 1900;
 	tmtime.tm_mon = httime.Month - 1;
 	tmtime.tm_mday = httime.Day;
 	tmtime.tm_wday = GetWeekDay(httime.Year, httime.Month, httime.Day);

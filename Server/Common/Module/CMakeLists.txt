@@ -1,4 +1,4 @@
-﻿project(Network)
+﻿project(Core)
 
 
 
