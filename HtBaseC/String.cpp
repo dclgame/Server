@@ -1,4 +1,4 @@
-#include "HtString.h"
+#include "String.h"
 
 #ifdef WIN32
 
@@ -17,28 +17,28 @@
 /* ×Ö·û´®´¦Àí                                                           */
 /************************************************************************/
 
-string HtString::StrConvert(char* srcPchar)
+string String::StrConvert(char* srcPchar)
 {
 	string str(srcPchar);
 	return str;
 }
 
-char* HtString::StrConvert(string &srcStr)
+char* String::StrConvert(string &srcStr)
 {
 	return &srcStr[0];
 }
 
-int HtString::StrLen(string str)
+int String::StrLen(string str)
 {
 	return str.length();
 }
 
-int HtString::StrLen(char* pchar)
+int String::StrLen(char* pchar)
 {
 	return strlen(pchar);
 }
 
-string HtString::StrSub(string str, int index, int count)
+string String::StrSub(string str, int index, int count)
 {
 	int strLen = StrLen(str);
 	if (index >= strLen || count <= 0)
@@ -61,7 +61,7 @@ string HtString::StrSub(string str, int index, int count)
 	}
 }
 
-string HtString::StrSub(char* pchar, int index, int count)
+string String::StrSub(char* pchar, int index, int count)
 {
 	int pcharLen = StrLen(pchar);
 	if (index >= pcharLen || count <= 0)
@@ -89,29 +89,29 @@ string HtString::StrSub(char* pchar, int index, int count)
 	}
 }
 
-string HtString::StrSub(string str, int index)
+string String::StrSub(string str, int index)
 {
 	int strLen = StrLen(str);
 	return StrSub(str, index, strLen);
 }
 
-string HtString::StrSub(char* pchar, int index)
+string String::StrSub(char* pchar, int index)
 {
 	int pcharLen = StrLen(pchar);
 	return StrSub(pchar, index, pcharLen);
 }
 
-string HtString::StrLeft(string str, int count)
+string String::StrLeft(string str, int count)
 {
 	return StrSub(str, 0, count);
 }
 
-string HtString::StrLeft(char* pchar, int count)
+string String::StrLeft(char* pchar, int count)
 {
 	return StrSub(pchar, 0, count);
 }
 
-string HtString::StrRight(string str, int count)
+string String::StrRight(string str, int count)
 {
 	int strLen = StrLen(str);
 	if (strLen >= count)
@@ -124,7 +124,7 @@ string HtString::StrRight(string str, int count)
 	}
 }
 
-string HtString::StrRight(char* pchar, int count)
+string String::StrRight(char* pchar, int count)
 {
 	int pcharLen = StrLen(pchar);
 	if (pcharLen >= count)
@@ -137,31 +137,31 @@ string HtString::StrRight(char* pchar, int count)
 	}
 }
 
-string HtString::StrLeftL(string str, int leftLeaveCount)
+string String::StrLeftL(string str, int leftLeaveCount)
 {
 	int strLen = StrLen(str);
 	return StrLeft(str, strLen - leftLeaveCount);	
 }
 
-string HtString::StrLeftL(char* pchar, int leftLeaveCount)
+string String::StrLeftL(char* pchar, int leftLeaveCount)
 {
 	int pcharLen = StrLen(pchar);
 	return StrLeft(pchar, pcharLen - leftLeaveCount);	
 }
 
-string HtString::StrRightL(string str, int rightLeaveCount)
+string String::StrRightL(string str, int rightLeaveCount)
 {
 	int strLen = StrLen(str);
 	return StrRight(str, strLen - rightLeaveCount);	
 }
 
-string HtString::StrRightL(char* pchar, int rightLeaveCount)
+string String::StrRightL(char* pchar, int rightLeaveCount)
 {
 	int pcharLen = StrLen(pchar);
 	return StrRight(pchar, pcharLen - rightLeaveCount);	
 }
 
-int HtString::StrPos(string str1, string str2, int index)
+int String::StrPos(string str1, string str2, int index)
 {
 	if (index >= StrLen(str1))
 	{
@@ -176,17 +176,17 @@ int HtString::StrPos(string str1, string str2, int index)
 	return str1.find(str2, index);
 }
 
-int HtString::StrPos(char* pchar1, string str2, int index)
+int String::StrPos(char* pchar1, string str2, int index)
 {
 	return StrPos(StrConvert(pchar1), str2, index);
 }
 
-int HtString::StrPos(char* pchar1, char* pchar2, int index)
+int String::StrPos(char* pchar1, char* pchar2, int index)
 {
 	return StrPos(StrConvert(pchar1), StrConvert(pchar2), index);
 }
 
-int HtString::StrPos(string str1, char* pchar2, int index)
+int String::StrPos(string str1, char* pchar2, int index)
 {
 	if (index >= StrLen(str1))
 	{
@@ -202,7 +202,7 @@ int HtString::StrPos(string str1, char* pchar2, int index)
 }
 
 
-int HtString::StrPosDown(string strs, string subs, int startp)
+int String::StrPosDown(string strs, string subs, int startp)
 {
 	int li_pos1;
 	int li_pos2 = -1;
@@ -215,7 +215,7 @@ int HtString::StrPosDown(string strs, string subs, int startp)
 	return li_pos1;
 }
 
-int HtString::StrPosDown(char* pchar, char* subPchar, int startp)
+int String::StrPosDown(char* pchar, char* subPchar, int startp)
 {
 	int li_pos1;
 	int li_pos2 = -1;
@@ -228,7 +228,7 @@ int HtString::StrPosDown(char* pchar, char* subPchar, int startp)
 	return li_pos1;
 }
 
-int HtString::StrPosDown(string strs, string subs)
+int String::StrPosDown(string strs, string subs)
 {
 	int li_pos1;
 	int li_pos2 = -1;
@@ -241,7 +241,7 @@ int HtString::StrPosDown(string strs, string subs)
 	return li_pos1;
 }
 
-int HtString::StrPosDown(char* pchar, char* subPchar)
+int String::StrPosDown(char* pchar, char* subPchar)
 {
 	int li_pos1;
 	int li_pos2 = -1;
@@ -254,7 +254,7 @@ int HtString::StrPosDown(char* pchar, char* subPchar)
 	return li_pos1;
 }
 
-string HtString::StrRepeat(string str, int repeatCount)
+string String::StrRepeat(string str, int repeatCount)
 {
 	string goalStr = "";
 	for(int i=0;i<repeatCount;i++)
@@ -264,7 +264,7 @@ string HtString::StrRepeat(string str, int repeatCount)
 	return goalStr;
 }
 
-string HtString::StrRepeat(char* pchar, int repeatCount)
+string String::StrRepeat(char* pchar, int repeatCount)
 {
 	int pcharLen = StrLen(pchar);
 	if (pcharLen == 0 || repeatCount <= 0)
@@ -285,7 +285,7 @@ string HtString::StrRepeat(char* pchar, int repeatCount)
 	}
 }
 
-string HtString::StrUpper(char* pchar)
+string String::StrUpper(char* pchar)
 {
 	int pcharLen = StrLen(pchar);
 	char* tmpPchar = new char[pcharLen + 1];
@@ -307,12 +307,12 @@ string HtString::StrUpper(char* pchar)
 	return tmpStr;
 }
 
-string HtString::StrUpper(string str)
+string String::StrUpper(string str)
 {
 	return StrUpper(StrConvert(str));
 }
 
-string HtString::StrLower(char* pchar)
+string String::StrLower(char* pchar)
 {
 	int pcharLen = StrLen(pchar);
 	char* tmpPchar = new char[pcharLen + 1];
@@ -334,22 +334,22 @@ string HtString::StrLower(char* pchar)
 	return tmpStr;
 }
 
-string HtString::StrLower(string str)
+string String::StrLower(string str)
 {
 	return StrLower(StrConvert(str));
 }
 
-string HtString::StrTrim(string str)
+string String::StrTrim(string str)
 {
 	return StrRTrim(StrLTrim(str));
 }
 
-string HtString::StrTrim(char* pchar)
+string String::StrTrim(char* pchar)
 {
 	return StrRTrim(StrLTrim(pchar));
 }
 
-string HtString::StrLTrim(string str)
+string String::StrLTrim(string str)
 {
 	while (StrLen(str) > 0 && str[0] == ' ')
 	{
@@ -358,7 +358,7 @@ string HtString::StrLTrim(string str)
 	return str;
 }
 
-string HtString::StrLTrim(char* pchar)
+string String::StrLTrim(char* pchar)
 {
 	int pcharLen = StrLen(pchar);
 	int index = 0;
@@ -381,7 +381,7 @@ string HtString::StrLTrim(char* pchar)
 	}
 }
 
-string HtString::StrRTrim(string str)
+string String::StrRTrim(string str)
 {
 	while (StrLen(str) > 0 && str[StrLen(str) - 1] == ' ')
 	{
@@ -390,7 +390,7 @@ string HtString::StrRTrim(string str)
 	return str;
 }
 
-string HtString::StrRTrim(char* pchar)
+string String::StrRTrim(char* pchar)
 {
 	int pcharLen = StrLen(pchar);
 	int index = pcharLen - 1;
@@ -413,27 +413,27 @@ string HtString::StrRTrim(char* pchar)
 	}
 }
 
-int HtString::StrComp(string str1, string str2)
+int String::StrComp(string str1, string str2)
 {
 	return str1.compare(str2);
 }
 
-int HtString::StrComp(char* pchar1, string str2)
+int String::StrComp(char* pchar1, string str2)
 {
 	return StrComp(pchar1, StrConvert(str2));
 }
 
-int HtString::StrComp(char* pchar1, char* pchar2)
+int String::StrComp(char* pchar1, char* pchar2)
 {
 	return strcmp(pchar1, pchar2);
 }
 
-int HtString::StrComp(string str1, char* pchar2)
+int String::StrComp(string str1, char* pchar2)
 {
 	return StrComp(StrConvert(str1), pchar2);
 }
 
-string HtString::StrReplace(string str, int index, int count, string dstStr)
+string String::StrReplace(string str, int index, int count, string dstStr)
 {
 	int strLen = StrLen(str);
 	if (index >= strLen || count <= 0)
@@ -452,22 +452,22 @@ string HtString::StrReplace(string str, int index, int count, string dstStr)
 	return str.replace(index, count, dstStr);
 }
 
-string HtString::StrReplace(string str, int index, int count, char* dstPchar)
+string String::StrReplace(string str, int index, int count, char* dstPchar)
 {
 	return StrReplace(str, index, count, StrConvert(dstPchar));
 }
 
-string HtString::StrReplace(char* pchar, int index, int count, char* dstPchar)
+string String::StrReplace(char* pchar, int index, int count, char* dstPchar)
 {
 	return StrReplace(StrConvert(pchar), index, count, StrConvert(dstPchar));
 }
 
-string HtString::StrReplace(char* pchar, int index, int count, string dstStr)
+string String::StrReplace(char* pchar, int index, int count, string dstStr)
 {
 	return StrReplace(StrConvert(pchar), index, count, dstStr);
 }
 
-string HtString::StrReplaceAll(string str, string searchFor, string replaceAs, int index)
+string String::StrReplaceAll(string str, string searchFor, string replaceAs, int index)
 {
 	int strLen = StrLen(str);
 	int searchForLen = StrLen(searchFor);
@@ -503,12 +503,12 @@ string HtString::StrReplaceAll(string str, string searchFor, string replaceAs, i
 	return str;
 }
 
-string HtString::StrReplaceAll(char* pchar, char* searchFor, char* replaceAs, int index)
+string String::StrReplaceAll(char* pchar, char* searchFor, char* replaceAs, int index)
 {
 	return StrReplaceAll(StrConvert(pchar), StrConvert(searchFor), StrConvert(replaceAs), index);
 }
 
-string HtString::StrDepart(string strs, string dpts, int nos)
+string String::StrDepart(string strs, string dpts, int nos)
 {
 	string departedstr = "";
 	int i, pos1, pos2, lenofdpts;
@@ -566,22 +566,22 @@ loop1:
 	return departedstr;
 }
 
-string HtString::StrDepart(string strs, int nos)
+string String::StrDepart(string strs, int nos)
 {
 	return StrDepart(strs, ";", nos);
 }
 
-string HtString::StrDepart(char* pchar, char* dptPchar, int nos)
+string String::StrDepart(char* pchar, char* dptPchar, int nos)
 {
 	return StrDepart(StrConvert(pchar), StrConvert(dptPchar), nos);
 }
 
-string HtString::StrDepart(char* pchar, int nos)
+string String::StrDepart(char* pchar, int nos)
 {
 	return StrDepart(pchar, ";", nos);
 }
 
-string HtString::GetParmStr(string strs, string dpts, string equs, string ids)
+string String::GetParmStr(string strs, string dpts, string equs, string ids)
 {
 	int pos0, pos1, pos2;
 	string poss;
@@ -609,17 +609,17 @@ string HtString::GetParmStr(string strs, string dpts, string equs, string ids)
 	return poss;
 }
 
-string HtString::GetParmStr(string strs, string dpts, string ids)
+string String::GetParmStr(string strs, string dpts, string ids)
 {
 	return GetParmStr(strs, dpts, "=", ids);
 }
 
-string HtString::GetParmStr(string strs, string ids)
+string String::GetParmStr(string strs, string ids)
 {
 	return GetParmStr(strs, ";", ids);
 }
 
-string HtString::SetParmStr(string strs, string dpts, string equs, string ids, string vals)
+string String::SetParmStr(string strs, string dpts, string equs, string ids, string vals)
 {
 	int pos0, pos1, pos2;
 	strs = dpts + strs;
@@ -652,17 +652,17 @@ string HtString::SetParmStr(string strs, string dpts, string equs, string ids, s
 	return strs;
 }
 
-string HtString::SetParmStr(string strs, string dpts, string ids, string vals)
+string String::SetParmStr(string strs, string dpts, string ids, string vals)
 {
 	return SetParmStr(strs, dpts, "=", ids, vals);
 }
 
-string HtString::SetParmStr(string strs, string ids, string vals)
+string String::SetParmStr(string strs, string ids, string vals)
 {
 	return SetParmStr(strs, ";", ids, vals);
 }
 
-string HtString::DelParmStr(string strs, string dpts, string equs, string ids)
+string String::DelParmStr(string strs, string dpts, string equs, string ids)
 {
 	int pos0, pos1, pos2;
 	strs = dpts + strs;
@@ -698,17 +698,17 @@ string HtString::DelParmStr(string strs, string dpts, string equs, string ids)
 	return strs;
 }
 
-string HtString::DelParmStr(string strs, string dpts, string ids)
+string String::DelParmStr(string strs, string dpts, string ids)
 {
 	return DelParmStr(strs, dpts, "=", ids);
 }
 
-string HtString::DelParmStr(string strs, string ids)
+string String::DelParmStr(string strs, string ids)
 {
 	return DelParmStr(strs, ";", ids);
 }
 
-string HtString::StrConvertFromLong(long long lval)
+string String::StrConvertFromLong(long long lval)
 {
 #ifdef WIN32
 	int pcharLen = 1;
@@ -744,22 +744,22 @@ string HtString::StrConvertFromLong(long long lval)
 #endif
 }
 
-string HtString::StrConvertFromInt(int ival)
+string String::StrConvertFromInt(int ival)
 {
 	return StrConvertFromLong(ival);
 }
 
-string HtString::StrConvertFromShort(short sval)
+string String::StrConvertFromShort(short sval)
 {
 	return StrConvertFromLong(sval);
 }
 
-string HtString::StrConvertFromByte(char bval)
+string String::StrConvertFromByte(char bval)
 {
 	return StrConvertFromLong(bval);
 }
 
-string HtString::StrConvertFromDouble(double dval, int dec)
+string String::StrConvertFromDouble(double dval, int dec)
 {
 	char s[20];
 #ifdef WIN32
@@ -773,12 +773,12 @@ string HtString::StrConvertFromDouble(double dval, int dec)
 	return StrConvert(s);
 }
 
-string HtString::StrConvertFromFloat(float fval, int dec)
+string String::StrConvertFromFloat(float fval, int dec)
 {
 	return StrConvertFromDouble(fval, dec);
 }
 
-long long HtString::StrConvertToLong(string str)
+long long String::StrConvertToLong(string str)
 {
 #ifdef WIN32
 	return _atoi64(StrConvert(str));
@@ -787,7 +787,7 @@ long long HtString::StrConvertToLong(string str)
 #endif
 }
 
-long long HtString::StrConvertToLong(char* pchar)
+long long String::StrConvertToLong(char* pchar)
 {
 #ifdef WIN32
 	return _atoi64(pchar);
@@ -796,63 +796,63 @@ long long HtString::StrConvertToLong(char* pchar)
 #endif
 }
 
-int HtString::StrConvertToInt(string str)
+int String::StrConvertToInt(string str)
 {
 	return atoi(StrConvert(str));
 }
 
-int HtString::StrConvertToInt(char* pchar)
+int String::StrConvertToInt(char* pchar)
 {
 	return atoi(pchar);
 }
 
-short HtString::StrConvertToShort(string str)
+short String::StrConvertToShort(string str)
 {
 	return StrConvertToInt(str);
 }
 
-short HtString::StrConvertToShort(char* pchar)
+short String::StrConvertToShort(char* pchar)
 {
 	return StrConvertToInt(pchar);
 }
 
-unsigned char HtString::StrConvertToByte(string str)
+unsigned char String::StrConvertToByte(string str)
 {
 	return StrConvertToInt(str);
 }
-unsigned char HtString::StrConvertToByte(char* pchar)
+unsigned char String::StrConvertToByte(char* pchar)
 {
 	return StrConvertToInt(pchar);
 }
 
-double HtString::StrConvertToDouble(string str)
+double String::StrConvertToDouble(string str)
 {
 	return StrConvertToDouble(StrConvert(str));
 }
 
-double HtString::StrConvertToDouble(char* pchar)
+double String::StrConvertToDouble(char* pchar)
 {
 	return atof(pchar);
 }
 
-float HtString::StrConvertToFloat(string str)
+float String::StrConvertToFloat(string str)
 {
 	return StrConvertToFloat(StrConvert(str));
 }
 
-float HtString::StrConvertToFloat(char* pchar)
+float String::StrConvertToFloat(char* pchar)
 {
 	return (float)StrConvertToDouble(pchar);
 }
 
 
-string HtString::StrExpr(string strs)
+string String::StrExpr(string strs)
 {
 	string s = StrReplaceAll(strs, "\\", "\\\\");
 	return "'" + StrReplaceAll(s, "'", "''") + "'";
 }
 
-vector<string> HtString::StrSplite(string strs, string dpts, bool noEmptyStr)
+vector<string> String::StrSplite(string strs, string dpts, bool noEmptyStr)
 {
 	vector<string> dstvect;
 	int dptslen = StrLen(dpts);
@@ -881,7 +881,7 @@ vector<string> HtString::StrSplite(string strs, string dpts, bool noEmptyStr)
 	return dstvect;
 }
 
-bool HtString::StrIsNoSplitted(string sStr)
+bool String::StrIsNoSplitted(string sStr)
 {
 	for (int i = 0; i < StrLen(sStr); i++)
 	{
@@ -893,7 +893,7 @@ bool HtString::StrIsNoSplitted(string sStr)
 	return true;
 }
 
-string HtString::StrGetSplittedPos(string sSrc, string sFirst, string sSecond, int &iPos)
+string String::StrGetSplittedPos(string sSrc, string sFirst, string sSecond, int &iPos)
 {
 	int iFirstPos = -1, iSecondPos;
 loopgo:
@@ -916,7 +916,7 @@ loopgo:
 	return "";
 }
 
-string HtString::StrFillCode(string codestr, int codelen, bool restrictLen)
+string String::StrFillCode(string codestr, int codelen, bool restrictLen)
 {
 	codestr = StrRepeat("0", codelen - StrLen(codestr)) + codestr;
 	if (restrictLen)
@@ -926,12 +926,12 @@ string HtString::StrFillCode(string codestr, int codelen, bool restrictLen)
 	return codestr;
 }
 
-string HtString::StrFillCode(long long codelong, int codelen, bool restrictLen)
+string String::StrFillCode(long long codelong, int codelen, bool restrictLen)
 {
 	return StrFillCode(StrConvertFromLong(codelong), codelen, restrictLen);
 }
 
-string HtString::StrPadChar(string sText, char cPadChar, int iWidth, bool bUntilWidth, bool bPadTail)
+string String::StrPadChar(string sText, char cPadChar, int iWidth, bool bUntilWidth, bool bPadTail)
 {
 	if (!bPadTail)
 	{
@@ -957,12 +957,12 @@ string HtString::StrPadChar(string sText, char cPadChar, int iWidth, bool bUntil
 	}
 }
 
-string HtString::StrPadSpace(string sText, int iWidth, bool bUntilWidth, bool bPadTail)
+string String::StrPadSpace(string sText, int iWidth, bool bUntilWidth, bool bPadTail)
 {
 	return StrPadChar(sText, ' ', iWidth, bUntilWidth, bPadTail);
 }
 
-string HtString::GetHzPY(string hzs)
+string String::GetHzPY(string hzs)
 {
 	if (StrTrim(hzs) == "")
 	{
@@ -1049,7 +1049,7 @@ string HtString::GetHzPY(string hzs)
 	return rtns;
 }
 
-string HtString::GetHzWB(string hzs)
+string String::GetHzWB(string hzs)
 {
 	if (StrTrim(hzs) == "")
 	{
@@ -1136,7 +1136,7 @@ string HtString::GetHzWB(string hzs)
 	return rtns;
 }
 
-string HtString::StrFormat(const char *fmt, ...)
+string String::StrFormat(const char *fmt, ...)
 {
 	va_list argptr;
 	va_start(argptr, fmt);
@@ -1145,7 +1145,7 @@ string HtString::StrFormat(const char *fmt, ...)
 	return outs;
 }
 
-string HtString::StrFormat(const char *fmt, va_list argptr)
+string String::StrFormat(const char *fmt, va_list argptr)
 {
 	char  buffer[512];
 #ifdef WIN32
@@ -1182,7 +1182,7 @@ static int code_convert(char *from_charset, char *to_charset, char *inbuf, size_
 
 #endif
 
-string HtString::StrConvertUtf8ToGbk(char* utf8)
+string String::StrConvertUtf8ToGbk(char* utf8)
 {
 #ifdef WIN32
 	int buffLen = 0;
@@ -1206,13 +1206,13 @@ string HtString::StrConvertUtf8ToGbk(char* utf8)
 #endif
 }
 
-string HtString::StrConvertUtf8ToGbk(string utf8)
+string String::StrConvertUtf8ToGbk(string utf8)
 {
 	char* putf8 = StrConvert(utf8);
 	return StrConvertUtf8ToGbk(putf8);
 }
 
-string HtString::StrConvertGbkToUtf8(char* gb2312)
+string String::StrConvertGbkToUtf8(char* gb2312)
 {
 #ifdef WIN32
 	int buffLen = 0;
@@ -1236,18 +1236,18 @@ string HtString::StrConvertGbkToUtf8(char* gb2312)
 #endif
 }
 
-string HtString::StrConvertGbkToUtf8(string gb2312)
+string String::StrConvertGbkToUtf8(string gb2312)
 {
 	char* pgb2312 = StrConvert(gb2312);
 	return StrConvertGbkToUtf8(pgb2312);
 }
 
-int HtString::StrGetHashCode(string s)
+int String::StrGetHashCode(string s)
 {
 	return StrGetHashCode(StrConvert(s));
 }
 
-int HtString::StrGetHashCode(char* pchar)
+int String::StrGetHashCode(char* pchar)
 {
 	int i=0;
 	int h=0;
@@ -1263,7 +1263,7 @@ int HtString::StrGetHashCode(char* pchar)
 #define STRENCDEC_C1 52845
 #define STRENCDEC_C2 22719
 
-string HtString::StrEncrypt(string S, long long Key)
+string String::StrEncrypt(string S, long long Key)
 {
  	string result, str;
 // 	int i, j;
@@ -1289,7 +1289,7 @@ string HtString::StrEncrypt(string S, long long Key)
 }
 
 
-string HtString::StrDecrypt(string S, long long Key)
+string String::StrDecrypt(string S, long long Key)
 {
  	string result, str;
 // 	int i, j;

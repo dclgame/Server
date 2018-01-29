@@ -1,5 +1,5 @@
-#ifndef _HtString_Defined_
-#define _HtString_Defined_
+#ifndef _String_Defined_
+#define _String_Defined_
 #include <iostream>
 #include <string.h>
 #include <vector>
@@ -11,7 +11,7 @@
 
 using namespace std;
 
-class  HtString
+class  String
 {
 public:
 

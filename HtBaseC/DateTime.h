@@ -1,14 +1,14 @@
-#ifndef _HtDateTime_Defined_
-#define _HtDateTime_Defined_
+#ifndef _DateTime_Defined_
+#define _DateTime_Defined_
 #include <time.h>
 #include <iostream>
 #include <string>
-#include "HtString.h"
+#include "string.h"
 using namespace std;
 
 //tm和time_t类型都只精确到秒，timeb精确到毫秒
 
-class HtDateTime
+class DateTime
 {
 private:
 	short Year;
@@ -20,9 +20,9 @@ private:
 	short MillSecond;
 
 public:
-	HtDateTime();
-	HtDateTime(char* initTimeStr);
-	~HtDateTime();
+	DateTime();
+	DateTime(char* initTimeStr);
+	~DateTime();
 
 
 	static const int VT_SECOND_1970 = 2209161600;
@@ -59,9 +59,9 @@ public:
 	{
 		return MillSecond;
 	}
-	HtDateTime getDate()
+	DateTime getDate()
 	{
-		HtDateTime dtdate;
+		DateTime dtdate;
 		dtdate.Year = Year;
 		dtdate.Month = Month;
 		dtdate.Day = Day;
@@ -82,28 +82,28 @@ public:
 		Minute = cMinute;
 	}
 
-	//将HtDateTime转化为字符串格式
+	//将DateTime转化为字符串格式
 	string ToString();
 	string ToString(string fmt);
-	//取两个HtDateTime时间之间间隔秒数
-	long long DiffSeconds(HtDateTime starttime);
-	//取两个HtDateTime时间之间间隔毫秒数
-	long long DiffMillSeconds(HtDateTime starttime);
+	//取两个DateTime时间之间间隔秒数
+	long long DiffSeconds(DateTime starttime);
+	//取两个DateTime时间之间间隔毫秒数
+	long long DiffMillSeconds(DateTime starttime);
 	//增加指定毫秒数
-	HtDateTime AddMillSeconds(long long addnum);
+	DateTime AddMillSeconds(long long addnum);
 	//增加指定秒数
-	HtDateTime AddSeconds(long long addnum);
-	HtDateTime AddSeconds(int addnum);
+	DateTime AddSeconds(long long addnum);
+	DateTime AddSeconds(int addnum);
 	//增加指定分钟
-	HtDateTime AddMinutes(int addnum);
+	DateTime AddMinutes(int addnum);
 	//增加指定小时
-	HtDateTime AddHours(int addnum);
+	DateTime AddHours(int addnum);
 	//增加指定天数
-	HtDateTime AddDays(int addnum);
+	DateTime AddDays(int addnum);
 	//增加指定月数
-	HtDateTime AddMonths(int addnum);
+	DateTime AddMonths(int addnum);
 	//增加指定年数
-	HtDateTime AddYears(int addnum);
+	DateTime AddYears(int addnum);
 
 public:
 
@@ -120,15 +120,15 @@ public:
 	//获取某日所属周天，周日为0
 	static char GetWeekDay(short year, char month, char day);
 	//获取某日所在周的周一的日期
-	static HtDateTime GetMondayOfWeek(HtDateTime dttime);
+	static DateTime GetMondayOfWeek(DateTime dttime);
 
-	//将HtDateTime转化为字符串格式
-	static string HtDateTimeConvertToStr(HtDateTime dttime);
-	//将字符串转化为HtDateTime
-	static HtDateTime StrConvertToHtDateTime(string timestr);
+	//将DateTime转化为字符串格式
+	static string DateTimeConvertToStr(DateTime dttime);
+	//将字符串转化为DateTime
+	static DateTime StrConvertToDateTime(string timestr);
 
 	//获取当前时间
-	static HtDateTime GetCurrTime();
+	static DateTime GetCurrTime();
 	//获取进程启动后经过的毫秒数
 	static long long GetAppSpendTicket();
 
@@ -182,16 +182,16 @@ public:
 	/* 慎用静态函数                                                         */
 	/************************************************************************/
 
-	//将Mysql的DateTime转换为HtDateTime
-//	static HtDateTime MysqlDateTimeConvertToHtDateTime(htdepends::mysql::DateTime mysqldt, int millsecd = 0);
-	//将time_t转换为HtDateTime
-	static HtDateTime TimetConvertToHtDateTime(time_t timet, int millsecd = 0);
-	//将HtDateTime转换为time_t
-	static time_t HtDateTimeConvertToTimet(HtDateTime httime, int& millsecd);
-	//转换tm类型为HtDateTime
-	static HtDateTime TmConvertToHtDateTime(tm tmtime, int millsecd = 0);
-	//转换HtDateTime类型为tm
-	static tm HtDateTimeConvertToTm(HtDateTime httime, int& millsecd);
+	//将Mysql的DateTime转换为DateTime
+//	static DateTime MysqlDateTimeConvertToDateTime(htdepends::mysql::DateTime mysqldt, int millsecd = 0);
+	//将time_t转换为DateTime
+	static DateTime TimetConvertToDateTime(time_t timet, int millsecd = 0);
+	//将DateTime转换为time_t
+	static time_t DateTimeConvertToTimet(DateTime httime, int& millsecd);
+	//转换tm类型为DateTime
+	static DateTime TmConvertToDateTime(tm tmtime, int millsecd = 0);
+	//转换DateTime类型为tm
+	static tm DateTimeConvertToTm(DateTime httime, int& millsecd);
 
 public:
 
@@ -199,12 +199,12 @@ public:
 	/* 操作符                                                               */
 	/************************************************************************/
 
-	long long operator - (const HtDateTime& httime)
+	long long operator - (const DateTime& httime)
 	{
 		return this->DiffMillSeconds(httime);
 	}
 
-	HtDateTime operator - (const long long millsec)
+	DateTime operator - (const long long millsec)
 	{
 		return this->AddMillSeconds(-millsec);
 	}
@@ -214,7 +214,7 @@ public:
 		*this = this->AddMillSeconds(-1);
 	}
 
-	HtDateTime operator + (const long long millsec)
+	DateTime operator + (const long long millsec)
 	{
 		return this->AddMillSeconds(millsec);
 	}
@@ -224,32 +224,32 @@ public:
 		*this = this->AddMillSeconds(1);
 	}
 
-	bool operator == (const HtDateTime& httime) const
+	bool operator == (const DateTime& httime) const
 	{
 		int millsecd1 = 0;
-		time_t tb1 = HtDateTimeConvertToTimet(*this, millsecd1);
+		time_t tb1 = DateTimeConvertToTimet(*this, millsecd1);
 		int millsecd2 = 0;
-		time_t tb2 = HtDateTimeConvertToTimet(httime, millsecd2);
+		time_t tb2 = DateTimeConvertToTimet(httime, millsecd2);
 
 		return tb1 == tb2 && millsecd1 == millsecd2;
 	}
 
-	bool operator != (const HtDateTime& httime) const
+	bool operator != (const DateTime& httime) const
 	{
 		int millsecd1 = 0;
-		time_t tb1 = HtDateTimeConvertToTimet(*this, millsecd1);
+		time_t tb1 = DateTimeConvertToTimet(*this, millsecd1);
 		int millsecd2 = 0;
-		time_t tb2 = HtDateTimeConvertToTimet(httime, millsecd2);
+		time_t tb2 = DateTimeConvertToTimet(httime, millsecd2);
 
 		return tb1 != tb2 || millsecd1 != millsecd2;
 	}
 
-	bool operator > (const HtDateTime& httime) const
+	bool operator > (const DateTime& httime) const
 	{
 		int millsecd1 = 0;
-		time_t tb1 = HtDateTimeConvertToTimet(*this, millsecd1);
+		time_t tb1 = DateTimeConvertToTimet(*this, millsecd1);
 		int millsecd2 = 0;
-		time_t tb2 = HtDateTimeConvertToTimet(httime, millsecd2);
+		time_t tb2 = DateTimeConvertToTimet(httime, millsecd2);
 
 		if (tb1 > tb2)
 			return true;
@@ -264,12 +264,12 @@ public:
 			return false;
 	}
 
-	bool operator >= (const HtDateTime& httime) const
+	bool operator >= (const DateTime& httime) const
 	{
 		int millsecd1 = 0;
-		time_t tb1 = HtDateTimeConvertToTimet(*this, millsecd1);
+		time_t tb1 = DateTimeConvertToTimet(*this, millsecd1);
 		int millsecd2 = 0;
-		time_t tb2 = HtDateTimeConvertToTimet(httime, millsecd2);
+		time_t tb2 = DateTimeConvertToTimet(httime, millsecd2);
 
 		if (tb1 > tb2)
 		{
@@ -286,12 +286,12 @@ public:
 			return false;
 	}
 
-	bool operator < (const HtDateTime& httime) const
+	bool operator < (const DateTime& httime) const
 	{
 		int millsecd1 = 0;
-		time_t tb1 = HtDateTimeConvertToTimet(*this, millsecd1);
+		time_t tb1 = DateTimeConvertToTimet(*this, millsecd1);
 		int millsecd2 = 0;
-		time_t tb2 = HtDateTimeConvertToTimet(httime, millsecd2);
+		time_t tb2 = DateTimeConvertToTimet(httime, millsecd2);
 
 		if (tb1 < tb2)
 			return true;
@@ -306,12 +306,12 @@ public:
 			return false;
 	}
 
-	bool operator <= (const HtDateTime& httime) const
+	bool operator <= (const DateTime& httime) const
 	{
 		int millsecd1 = 0;
-		time_t tb1 = HtDateTimeConvertToTimet(*this, millsecd1);
+		time_t tb1 = DateTimeConvertToTimet(*this, millsecd1);
 		int millsecd2 = 0;
-		time_t tb2 = HtDateTimeConvertToTimet(httime, millsecd2);
+		time_t tb2 = DateTimeConvertToTimet(httime, millsecd2);
 
 		if (tb1 < tb2)
 			return true;
